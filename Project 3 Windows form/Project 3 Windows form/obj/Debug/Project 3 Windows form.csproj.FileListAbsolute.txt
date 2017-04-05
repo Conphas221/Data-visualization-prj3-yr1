@@ -1,0 +1,8 @@
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.exe.config
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.exe
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.pdb
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.csprojResolveAssemblyReference.cache
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project_3_Windows_form.Properties.Resources.resources
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.csproj.GenerateResource.Cache
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.exe
+C:\Users\colin\Documents\Visual Studio 2015\Projects\HenkMan\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.pdb
