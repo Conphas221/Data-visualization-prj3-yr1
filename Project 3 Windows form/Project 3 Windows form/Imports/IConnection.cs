@@ -2,13 +2,13 @@
 
 namespace Project_3_Windows_form.Imports
 {
-    public abstract class Aimport
+    public abstract class IConnection
     {
         protected MySqlConnection conn;
 
-        public Aimport()
+        public IConnection()
         {
-            //Fill in the correct Database information
+            //Fill in the correct Database information, correct to your own database for own use
             conn = new MySqlConnection("Uid=root;pwd=;Database=a13;");
         }
         // Converts null values to useable values

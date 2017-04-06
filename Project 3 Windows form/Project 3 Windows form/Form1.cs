@@ -13,7 +13,6 @@ namespace Project_3_Windows_form
 {
     public partial class Form1 : Form
     {
-        int everything;
         public Form1()
         {
             InitializeComponent();
@@ -28,12 +27,14 @@ namespace Project_3_Windows_form
         {
             A13Import A13import = new A13Import();
             List<int> test = A13import.ImportSpeeds();
-            foreach (int item in test)
-            {
-                everything = everything + item;
-            }
-            Result.Text = everything.ToString();
+            int everything = 0;
+            Result.Text = everything.ToString();            
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Converter convert = new Converter();
+            convert.ConvertDatabaseToNewList();
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Project_3_Windows_form.Imports
 {
-    public class A13Import : Aimport
+    public class A13Import : IConnection
     {
             public List<int> ImportSpeeds(/*string search*/)
             {
