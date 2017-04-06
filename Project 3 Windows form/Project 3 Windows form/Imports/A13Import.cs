@@ -9,19 +9,19 @@ using System.Windows.Forms;
 
 namespace Project_3_Windows_form.Imports
 {
-    class A13Import : Aimport
+    public class A13Import : Aimport
     {
-            public List<int> ImportSpeeds(int search)
+            public List<int> ImportSpeeds(/*string search*/)
             {
                 List<int> speed = new List<int>();
                 try
                 {
                     conn.Open();
                     MySqlCommand cmd;
-                    string searchQuery = @"SELECT * FROM a13 WHERE snelheid LIKE @search";
+                    string searchQuery = @"SELECT * FROM snelheid"/*@"@search"*/;
                     cmd = new MySqlCommand(searchQuery, conn);
 
-                    cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+                    //cmd.Parameters.AddWithValue("@search", search);
 
                     cmd.Prepare();
 

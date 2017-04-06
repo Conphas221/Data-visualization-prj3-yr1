@@ -15,3 +15,7 @@ C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Wind
 C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.csprojResolveAssemblyReference.cache
 C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project_3_Windows_form.Properties.Resources.resources
 C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.csproj.GenerateResource.Cache
+C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project_3_Windows_form.Form1.resources
+C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.exe
+C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.pdb
+C:\Users\colin\Source\Repos\Experiment-52b\Project 3 Windows form\Project 3 Windows form\bin\Debug\MySql.Data.dll

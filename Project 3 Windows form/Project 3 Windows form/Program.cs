@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project_3_Windows_form.Imports;
 
 namespace Project_3_Windows_form
 {
@@ -16,7 +17,9 @@ namespace Project_3_Windows_form
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new Form1());
+            Game game = new Game();
         }
     }
 }
