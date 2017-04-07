@@ -33,8 +33,13 @@ namespace Project_3_Windows_form
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Converter convert = new Converter();
-            convert.ConvertDatabaseToNewList();
+            DialogResult dialogResult = MessageBox.Show("Do you really want to convert the speeds?","convert", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Converter convert = new Converter();
+                convert.ConvertDatabaseToNewList();
+            }
+
         }
     }
 }

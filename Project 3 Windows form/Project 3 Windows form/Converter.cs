@@ -31,11 +31,29 @@ namespace Project_3_Windows_form
                 else
                 {
                     avgday = avgday / 1440;
+                    createTableSnelheidDag();
                     InsertNewValues(day, avgday); // activates the insert function to insert the created data into a model
                     day++;
                     avgday = 0;
                     countItteration = 1;
                 }
+            }
+            MessageBox.Show("Importing finished");
+        }
+        private void createTableSnelheidDag()
+        {
+            try
+            {
+                conn.Open();
+                string query = @"DROP TABLE IF EXISTS snelheidDag; CREATE TABLE IF NOT EXISTS `snelheidDag` (`day` int(11) DEFAULT NULL, `gemSnelheid` int(11) DEFAULT NULL);";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch { }
+            finally
+            {
+                conn.Close();
             }
         }
         public void InsertNewValues(int day, int avgspeed)
@@ -54,7 +72,6 @@ namespace Project_3_Windows_form
 
                 cmd = new MySqlCommand(query, conn);
 
-                
                 MySqlParameter dayParam = new MySqlParameter("@day", MySqlDbType.Int32);
                 MySqlParameter gemSnelheidParam = new MySqlParameter("@gemSnelheid", MySqlDbType.Int32);
 
