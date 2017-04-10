@@ -13,6 +13,7 @@ namespace Project_3_Windows_form
 {
     public partial class Form1 : Form
     {
+        A13Import Importer = new A13Import();
         public Form1()
         {
             InitializeComponent();
@@ -25,8 +26,7 @@ namespace Project_3_Windows_form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            A13Import A13import = new A13Import();
-            List<int> test = A13import.ImportSpeeds();
+            List<int> test = Importer.ImportSpeeds();
             int everything = 0;
             Result.Text = everything.ToString();            
         }
@@ -40,6 +40,16 @@ namespace Project_3_Windows_form
                 convert.ConvertDatabaseToNewList();
             }
 
+        }
+        private void fillChartWithAverageSpeed()
+        {
+            BarChart.Series.Clear();
+            List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
+            foreach (var item in Importer.ImportAVGdailySpeed())
+            {
+                BarChart.Series["gemSnelheid"].Points.AddXY("", "85");
+            }
+            
         }
     }
 }

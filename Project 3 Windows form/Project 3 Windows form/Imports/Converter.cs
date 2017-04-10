@@ -19,6 +19,7 @@ namespace Project_3_Windows_form
             int countItteration= 1;
             int avgday = 0;
             int day = 1;
+            createTableSnelheidDag();
             foreach(int minute in data)
             {
                 //Takes the speed of every minute and adds them up then devides them when they reach 1440 minutes (a day) to get the average
@@ -31,7 +32,7 @@ namespace Project_3_Windows_form
                 else
                 {
                     avgday = avgday / 1440;
-                    createTableSnelheidDag();
+
                     InsertNewValues(day, avgday); // activates the insert function to insert the created data into a model
                     day++;
                     avgday = 0;
@@ -61,14 +62,14 @@ namespace Project_3_Windows_form
             try
             {
                 conn.Open();
-                string query = @"CREATE TABLE IF NOT EXISTS `snelheidDag` (`day` int(11) DEFAULT NULL, `gemSnelheid` int(11) DEFAULT NULL);";
+                string query = @"CREATE TABLE IF NOT EXISTS `snelheidDag` (`dag` int(11) DEFAULT NULL, `gemSnelheid` int(11) DEFAULT NULL);";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
                 conn.Open();
-                query = @"INSERT INTO snelheidDag (day, gemSnelheid) VALUES (@day, @gemSnelheid)";
+                query = @"INSERT INTO snelheidDag (dag, gemSnelheid) VALUES (@day, @gemSnelheid)";
 
                 cmd = new MySqlCommand(query, conn);
 
