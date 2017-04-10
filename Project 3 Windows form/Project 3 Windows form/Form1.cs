@@ -54,6 +54,8 @@ namespace Project_3_Windows_form
                 BarChart.Series["gemSnelheid"].Points.AddXY(count, item);
                 count = count + 1;
             }
+
+            BarChart.Series.Add("Intensiteit");
             
         }
 

@@ -69,5 +69,35 @@ namespace Project_3_Windows_form.Imports
             }
             return speed;
         }
+        public List<int> ImportAVGCarsAmount()
+        {
+            List<int> intensity = new List<int>();
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd;
+                string searchQuery = @"SELECT * FROM Intensiteit";
+                cmd = new MySqlCommand(searchQuery, conn);
+
+                cmd.Prepare();
+
+                MySqlDataReader datareader = cmd.ExecuteReader();
+
+                while (datareader.Read())
+                {
+                    intensity.Add(datareader.GetInt32("Intensiteit"));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Importing intensity failed");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return intensity;
+        }
     }
-    }
+    
+}

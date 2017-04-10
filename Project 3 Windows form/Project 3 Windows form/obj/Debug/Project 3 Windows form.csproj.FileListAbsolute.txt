@@ -29,3 +29,13 @@ C:\Users\sanne\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 
 C:\Users\sanne\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project_3_Windows_form.Form1.resources
 C:\Users\sanne\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project_3_Windows_form.Properties.Resources.resources
 C:\Users\sanne\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.csproj.GenerateResource.Cache
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.exe.config
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.exe
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.pdb
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.exe
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\bin\Debug\Project 3 Windows form.pdb
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\bin\Debug\MySql.Data.dll
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.csprojResolveAssemblyReference.cache
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project_3_Windows_form.Form1.resources
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project_3_Windows_form.Properties.Resources.resources
+C:\Users\marce\Documents\GitHub\Experiment-52b\Project 3 Windows form\Project 3 Windows form\obj\Debug\Project 3 Windows form.csproj.GenerateResource.Cache
