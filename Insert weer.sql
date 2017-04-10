@@ -15,16 +15,16 @@ USE `a13`;
 -- Structuur van  tabel weer.weer wordt geschreven
 CREATE TABLE IF NOT EXISTS `weer` (
   `datum` date DEFAULT NULL,
-  `gem temp` int(11) DEFAULT NULL,
-  `laagste temp` int(11) DEFAULT NULL,
-  `hoogste temp` int(11) DEFAULT NULL,
-  `duur regen` int(11) DEFAULT NULL,
-  `hoeveelheid regen` int(11) DEFAULT NULL
+  `gemTemp` int(11) DEFAULT NULL,
+  `laagsteTemp` int(11) DEFAULT NULL,
+  `hoogsteTemp` int(11) DEFAULT NULL,
+  `duurRegen` int(11) DEFAULT NULL,
+  `hoeveelheidRegen` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumpen data van tabel weer.weer: ~0 rows (ongeveer)
 /*!40000 ALTER TABLE `weer` DISABLE KEYS */;
-INSERT INTO `weer` (`datum`, `gem temp`, `laagste temp`, `hoogste temp`, `duur regen`, `hoeveelheid regen`) VALUES
+INSERT INTO `weer` (`datum`, `gemTemp`, `laagsteTemp`, `hoogsteTemp`, `duurRegen`, `hoeveelheidRegen`) VALUES
 	('2011-01-01', 39, -14, 68, 19, 7),
 	('2011-01-02', 17, -13, 51, 0, -1),
 	('2011-01-03', 12, -23, 39, 16, 24),

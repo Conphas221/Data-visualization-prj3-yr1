@@ -46,7 +46,7 @@ namespace Project_3_Windows_form
             try
             {
                 conn.Open();
-                string query = @"DROP TABLE IF EXISTS snelheidDag; CREATE TABLE IF NOT EXISTS `snelheidDag` (`day` int(11) DEFAULT NULL, `gemSnelheid` int(11) DEFAULT NULL);";
+                string query = @"DROP TABLE IF EXISTS snelheidDag; CREATE TABLE IF NOT EXISTS `snelheidDag` (`dag` int(11) DEFAULT NULL, `gemSnelheid` int(11) DEFAULT NULL);";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();

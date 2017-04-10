@@ -44,12 +44,23 @@ namespace Project_3_Windows_form
         private void fillChartWithAverageSpeed()
         {
             BarChart.Series.Clear();
+            BarChart.Series.Add("gemSnelheid");
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            int count = 1;
+            
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
             foreach (var item in Importer.ImportAVGdailySpeed())
             {
-                BarChart.Series["gemSnelheid"].Points.AddXY("", "85");
+                BarChart.Series["gemSnelheid"].Points.AddXY(count, item);
+                count = count + 1;
             }
             
+        }
+
+        private void spdButton_Click(object sender, EventArgs e)
+        {
+            // gemiddelde snelheid lijst int & deze snelheden toevoegd aan de barchart
+            fillChartWithAverageSpeed();
         }
     }
 }

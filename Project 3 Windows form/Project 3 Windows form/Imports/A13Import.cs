@@ -18,7 +18,7 @@ namespace Project_3_Windows_form.Imports
                 {
                     conn.Open();
                     MySqlCommand cmd;
-                    string searchQuery = @"SELECT * FROM snelheid";
+                    string searchQuery = @"SELECT * FROM Snelheid";
                     cmd = new MySqlCommand(searchQuery, conn);
 
                     cmd.Prepare();
@@ -27,7 +27,7 @@ namespace Project_3_Windows_form.Imports
 
                     while (dataReader.Read())
                     {
-                        speed.Add(dataReader.GetInt32("snelheid"));
+                        speed.Add(dataReader.GetInt32("Snelheid"));
                     }
                 }
                 catch
@@ -56,7 +56,7 @@ namespace Project_3_Windows_form.Imports
 
                 while (dataReader.Read())
                 {
-                    speed.Add(dataReader.GetInt32("snelheid"));
+                    speed.Add(dataReader.GetInt32("gemSnelheid"));
                 }
             }
             catch
