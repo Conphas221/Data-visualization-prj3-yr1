@@ -24,16 +24,40 @@ namespace Project_3_Windows_form
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void fillChartWithAverageSpeed()
         {
-            List<int> test = Importer.ImportSpeeds();
-            int everything = 0;
-            Result.Text = everything.ToString();            
-        }
+            BarChart.Series.Clear();
+            BarChart.Series.Add("Average speed");
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            BarChart.Series[0].Color = Color.Gray;
+            BarChart.Series[0].BorderColor = Color.LightBlue;
+            BarChart.BackColor = Color.WhiteSmoke;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            BarChart.Titles.Add("Average speed & amount of cars");
+            int count = 1;
+            
+            List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
+            foreach (var item in Importer.ImportAVGdailySpeed())
+            {
+                BarChart.Series["Average speed"].Points.AddXY(count, item);
+                count = count + 1;
+            }
 
-        private void button2_Click(object sender, EventArgs e)
+            BarChart.Series.Add("Average car amount");
+            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            int tel = 1;
+
+            List<int> AVGcars = Importer.ImportAVGCarsAmount();
+            foreach (var item in Importer.ImportAVGCarsAmount())
+            {
+                BarChart.Series["Average car amount"].Points.AddXY(tel, item);
+                tel = tel + 1;
+            }
+
+        }
+        private void btnMinToDay_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Do you really want to convert the speeds?","convert", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Do you really want to convert the speeds?", "convert", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Converter convert = new Converter();
@@ -41,37 +65,30 @@ namespace Project_3_Windows_form
             }
 
         }
-        private void fillChartWithAverageSpeed()
-        {
-            BarChart.Series.Clear();
-            BarChart.Series.Add("gemSnelheid");
-            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            int count = 1;
-            
-            List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
-            foreach (var item in Importer.ImportAVGdailySpeed())
-            {
-                BarChart.Series["gemSnelheid"].Points.AddXY(count, item);
-                count = count + 1;
-            }
 
-            BarChart.Series.Add("Gemiddelde aantal auto's");
-            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            int tel = 1;
-
-            List<int> AVGcars = Importer.ImportAVGCarsAmount();
-            foreach (var item in Importer.ImportAVGCarsAmount())
-            {
-                BarChart.Series["Gemiddelde aantal auto's"].Points.AddXY(tel, item);
-                tel = tel + 1;
-            }
-
-        }
-
-        private void spdButton_Click(object sender, EventArgs e)
+        private void btnSpeedCar_Click(object sender, EventArgs e)
         {
             // gemiddelde snelheid lijst int & deze snelheden toevoegd aan de barchart
             fillChartWithAverageSpeed();
+        }
+
+        private void btnSpeed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTempCar_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Convertbutton_Click(object sender, EventArgs e)
