@@ -10,12 +10,10 @@ namespace Project_3_Windows_form.Imports
     {
         int AVGTemp;
         int speed;
-        DateTime dag;
-        public WeatherNode(int AVGTemp, int speed, DateTime dag)
+        public WeatherNode(int AVGTemp, int speed)
         {
             this.AVGTemp = AVGTemp;
             this.speed = speed;
-            this.dag = dag;
         }
         public int GetSpeed()
         {

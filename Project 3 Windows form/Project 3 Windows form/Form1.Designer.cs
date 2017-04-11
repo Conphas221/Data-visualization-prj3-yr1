@@ -37,6 +37,8 @@
             this.Result = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.spdButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Convertbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BarChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,11 +99,32 @@
             this.spdButton.UseVisualStyleBackColor = true;
             this.spdButton.Click += new System.EventHandler(this.spdButton_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // Convertbutton
+            // 
+            this.Convertbutton.Location = new System.Drawing.Point(870, 12);
+            this.Convertbutton.Name = "Convertbutton";
+            this.Convertbutton.Size = new System.Drawing.Size(125, 23);
+            this.Convertbutton.TabIndex = 6;
+            this.Convertbutton.Text = "Convert cars amount";
+            this.Convertbutton.UseVisualStyleBackColor = true;
+            this.Convertbutton.Click += new System.EventHandler(this.Convertbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1019, 421);
+            this.Controls.Add(this.Convertbutton);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.spdButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Result);
@@ -122,6 +145,8 @@
         private System.Windows.Forms.Label Result;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button spdButton;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Convertbutton;
     }
 }
 

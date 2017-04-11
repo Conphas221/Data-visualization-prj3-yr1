@@ -40,6 +40,35 @@ namespace Project_3_Windows_form.Imports
                 }
                 return speed;
             }
+        public List<int> ImportAvgCars()
+        {
+            List<int> speed = new List<int>();
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd;
+                string searchQuery = @"SELECT * FROM intensiteit";
+                cmd = new MySqlCommand(searchQuery, conn);
+
+                cmd.Prepare();
+
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    speed.Add(dataReader.GetInt32("Intensiteit"));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Importing speed failed");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return speed;
+        }
         public List<int> ImportAVGdailySpeed()
         {
             List<int> speed = new List<int>();
@@ -122,35 +151,37 @@ namespace Project_3_Windows_form.Imports
             }
             return AVGDay;
         }
-        //public List<WeatherNode> ImportWeatherAndSpeeds()
-        //{
-        //    List<WeatherNode> weatherNodes = new List<WeatherNode>();
-        //    try
-        //    {
-        //        conn.Open();
-        //        MySqlCommand cmd;
-        //        string searchQuery = @"SELECT .gemSnelheid, weer.gemTemp  FROM Snelheid";
-        //        cmd = new MySqlCommand(searchQuery, conn);
+        public List<WeatherNode> ImportWeatherAndSpeeds()
+        {
+            List<WeatherNode> weatherNodes = new List<WeatherNode>();
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd;
+                string searchQuery = @"SELECT .gemSnelheid, weer.gemTemp  FROM Snelheid";
+                cmd = new MySqlCommand(searchQuery, conn);
 
-        //        cmd.Prepare();
+                cmd.Prepare();
 
-        //        MySqlDataReader dataReader = cmd.ExecuteReader();
+                MySqlDataReader dataReader = cmd.ExecuteReader();
 
-        //        while (dataReader.Read())
-        //        {
-        //            speed.Add(dataReader.GetInt32("Snelheid"));
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Importing speed failed");
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
-        //    return speed;
-        //}
+                while (dataReader.Read())
+                {
+                    int speed = dataReader.GetInt32("Snelheid");
+                    int weather = dataReader.GetInt32("gemTemp");
+                    weatherNodes.Add(new WeatherNode(weather, speed));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Importing speed failed");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return weatherNodes;
+        }
     }
-    
+
 }

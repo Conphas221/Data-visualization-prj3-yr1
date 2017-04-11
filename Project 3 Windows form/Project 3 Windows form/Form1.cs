@@ -73,5 +73,11 @@ namespace Project_3_Windows_form
             // gemiddelde snelheid lijst int & deze snelheden toevoegd aan de barchart
             fillChartWithAverageSpeed();
         }
+
+        private void Convertbutton_Click(object sender, EventArgs e)
+        {
+            Converter convert = new Converter();
+            convert.ConvertDatabase(Importer.ImportAvgCars());
+        }
     }
 }
