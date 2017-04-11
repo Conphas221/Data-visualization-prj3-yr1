@@ -37,7 +37,7 @@ namespace Project_3_Windows_form
             if (dialogResult == DialogResult.Yes)
             {
                 Converter convert = new Converter();
-                convert.ConvertDatabaseToNewList();
+                convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
             }
 
         }
