@@ -122,6 +122,35 @@ namespace Project_3_Windows_form.Imports
             }
             return AVGDay;
         }
+        //public List<WeatherNode> ImportWeatherAndSpeeds()
+        //{
+        //    List<WeatherNode> weatherNodes = new List<WeatherNode>();
+        //    try
+        //    {
+        //        conn.Open();
+        //        MySqlCommand cmd;
+        //        string searchQuery = @"SELECT .gemSnelheid, weer.gemTemp  FROM Snelheid";
+        //        cmd = new MySqlCommand(searchQuery, conn);
+
+        //        cmd.Prepare();
+
+        //        MySqlDataReader dataReader = cmd.ExecuteReader();
+
+        //        while (dataReader.Read())
+        //        {
+        //            speed.Add(dataReader.GetInt32("Snelheid"));
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("Importing speed failed");
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //    return speed;
+        //}
     }
     
 }

@@ -44,25 +44,25 @@ namespace Project_3_Windows_form
         private void fillChartWithAverageSpeed()
         {
             BarChart.Series.Clear();
-            BarChart.Series.Add("gemiddelde Snelheid");
+            BarChart.Series.Add("gemSnelheid");
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             int count = 1;
             
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
             foreach (var item in Importer.ImportAVGdailySpeed())
             {
-                BarChart.Series["gemiddelde Snelheid"].Points.AddXY(count, item);
+                BarChart.Series["gemSnelheid"].Points.AddXY(count, item);
                 count = count + 1;
             }
 
-            BarChart.Series.Add("Aantal auto's");
+            BarChart.Series.Add("Gemiddelde aantal auto's");
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             int tel = 1;
 
             List<int> AVGcars = Importer.ImportAVGCarsAmount();
             foreach (var item in Importer.ImportAVGCarsAmount())
             {
-                BarChart.Series["Aantal auto's"].Points.AddXY(tel, item);
+                BarChart.Series["Gemiddelde aantal auto's"].Points.AddXY(tel, item);
                 tel = tel + 1;
             }
 

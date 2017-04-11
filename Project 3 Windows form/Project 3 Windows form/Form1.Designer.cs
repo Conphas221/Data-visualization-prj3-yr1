@@ -29,9 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BarChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.Result = new System.Windows.Forms.Label();
@@ -42,18 +42,18 @@
             // 
             // BarChart
             // 
-            chartArea3.Name = "ChartArea2";
-            this.BarChart.ChartAreas.Add(chartArea3);
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Name = "Legend1";
-            this.BarChart.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea2";
+            this.BarChart.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Name = "Legend1";
+            this.BarChart.Legends.Add(legend1);
             this.BarChart.Location = new System.Drawing.Point(12, 12);
             this.BarChart.Name = "BarChart";
-            series3.ChartArea = "ChartArea2";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "BarChart";
-            this.BarChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea2";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "BarChart";
+            this.BarChart.Series.Add(series1);
             this.BarChart.Size = new System.Drawing.Size(837, 332);
             this.BarChart.TabIndex = 0;
             this.BarChart.Text = "chart1";
@@ -61,9 +61,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(858, 386);
+            this.button1.Location = new System.Drawing.Point(855, 386);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 23);
+            this.button1.Size = new System.Drawing.Size(161, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Count all speeds";
             this.button1.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(700, 386);
+            this.button2.Location = new System.Drawing.Point(688, 386);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 23);
+            this.button2.Size = new System.Drawing.Size(161, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Convert minutes to days";
             this.button2.UseVisualStyleBackColor = true;
@@ -89,9 +89,9 @@
             // 
             // spdButton
             // 
-            this.spdButton.Location = new System.Drawing.Point(858, 357);
+            this.spdButton.Location = new System.Drawing.Point(855, 357);
             this.spdButton.Name = "spdButton";
-            this.spdButton.Size = new System.Drawing.Size(149, 23);
+            this.spdButton.Size = new System.Drawing.Size(161, 23);
             this.spdButton.TabIndex = 4;
             this.spdButton.Text = "Show average speed/cars";
             this.spdButton.UseVisualStyleBackColor = true;

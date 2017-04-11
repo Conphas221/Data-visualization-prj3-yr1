@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 
 namespace Project_3_Windows_form.Imports
 {
-    class WeatherNode
+    public class WeatherNode
     {
         int AVGTemp;
         int speed;
-        public WeatherNode(int AVGTemp, int speed)
+        DateTime dag;
+        public WeatherNode(int AVGTemp, int speed, DateTime dag)
         {
             this.AVGTemp = AVGTemp;
             this.speed = speed;
+            this.dag = dag;
+        }
+        public int GetSpeed()
+        {
+            return speed;
+        }
+        public int getAVGTemp()
+        {
+            return AVGTemp;
         }
     }
 }
