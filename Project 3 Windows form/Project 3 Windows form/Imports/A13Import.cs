@@ -76,7 +76,7 @@ namespace Project_3_Windows_form.Imports
             {
                 conn.Open();
                 MySqlCommand cmd;
-                string searchQuery = @"SELECT * FROM Intensiteit";
+                string searchQuery = @"SELECT intensiteit FROM Intensiteit";
                 cmd = new MySqlCommand(searchQuery, conn);
 
                 cmd.Prepare();
@@ -96,7 +96,31 @@ namespace Project_3_Windows_form.Imports
             {
                 conn.Close();
             }
-            return intensity;
+            
+            int countItteration = 1;
+            int avgday = 0;
+            int day = 1;
+            List<int> AVGDay = new List<int>();
+            foreach (int minute in intensity)
+            {
+                //Takes the speed of every minute and adds them up then devides them when they reach 1440 minutes (a day) to get the average
+                if (countItteration < 1440)
+                {
+                    avgday = avgday + minute;
+                    countItteration++;
+                    //Console.WriteLine(countItteration);
+                }
+                else
+                {
+                    avgday = avgday / 1440;
+
+                    AVGDay.Add(avgday); // activates the insert function to insert the created data into a model
+                    day++;
+                    avgday = 0;
+                    countItteration = 1;
+                }
+            }
+            return AVGDay;
         }
     }
     

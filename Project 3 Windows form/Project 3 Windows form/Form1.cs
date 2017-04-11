@@ -56,7 +56,16 @@ namespace Project_3_Windows_form
             }
 
             BarChart.Series.Add("Intensiteit");
-            
+            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            int tel = 1;
+
+            List<int> AVGcars = Importer.ImportAVGCarsAmount();
+            foreach (var item in Importer.ImportAVGCarsAmount())
+            {
+                BarChart.Series["Intensiteit"].Points.AddXY(tel, item);
+                tel = tel + 1;
+            }
+
         }
 
         private void spdButton_Click(object sender, EventArgs e)
