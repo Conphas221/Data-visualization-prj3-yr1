@@ -61,6 +61,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Imports\A13Import.cs" />
     <Compile Include="Imports\IConnection.cs" />
+    <Compile Include="Imports\WeatherNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
