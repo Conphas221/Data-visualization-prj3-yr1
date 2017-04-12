@@ -183,6 +183,39 @@ namespace Project_3_Windows_form.Imports
             }
             return valueNodes;
         }
+        public List<_2ValueNodes> Import2CarAverage()
+        {
+            List<_2ValueNodes> valueNodes = new List<_2ValueNodes>();
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd;
+                string searchQuery = @"select snelheidc78 from snelheid_c78
+                                       union
+                                       select Snelheid from snelheid;";
+                cmd = new MySqlCommand(searchQuery, conn);
+
+                cmd.Prepare();
+
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    int snelheidMijlpaal78 = dataReader.GetInt32("snelheidc78");
+                    int snelheidMijlpaal142 = dataReader.GetInt32("Snelheid");
+                    valueNodes.Add(new _2ValueNodes(snelheidMijlpaal78, snelheidMijlpaal142));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Importing speed/weather failed");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return valueNodes;
+        }
     }
 
 }
