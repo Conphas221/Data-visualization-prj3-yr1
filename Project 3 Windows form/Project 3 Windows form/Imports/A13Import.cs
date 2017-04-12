@@ -151,14 +151,14 @@ namespace Project_3_Windows_form.Imports
             }
             return AVGDay;
         }
-        public List<WeatherNode> ImportWeatherAndSpeeds()
+        public List<WeatherNode> ImportWeatherAndCars()
         {
             List<WeatherNode> weatherNodes = new List<WeatherNode>();
             try
             {
                 conn.Open();
                 MySqlCommand cmd;
-                string searchQuery = @"SELECT .gemSnelheid, weer.gemTemp  FROM Snelheid";
+                string searchQuery = @"SELECT autosdag.gemAuto, weer.gemTemp FROM autosdag JOIN weer ON autosdag.dag=weer.datum";
                 cmd = new MySqlCommand(searchQuery, conn);
 
                 cmd.Prepare();
@@ -167,14 +167,15 @@ namespace Project_3_Windows_form.Imports
 
                 while (dataReader.Read())
                 {
-                    int speed = dataReader.GetInt32("Snelheid");
+                    int cars = dataReader.GetInt32("gemAuto");
                     int weather = dataReader.GetInt32("gemTemp");
-                    weatherNodes.Add(new WeatherNode(weather, speed));
+                    weather = weather / 10;
+                    weatherNodes.Add(new WeatherNode(weather, cars));
                 }
             }
             catch
             {
-                MessageBox.Show("Importing speed failed");
+                MessageBox.Show("Importing speed/weather failed");
             }
             finally
             {

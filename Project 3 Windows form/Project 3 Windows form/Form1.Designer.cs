@@ -192,6 +192,4 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnTempCar;
         private System.Windows.Forms.Button btnSpeed;
-    }
-}
 
