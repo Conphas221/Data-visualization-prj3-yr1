@@ -41,7 +41,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnTempCar = new System.Windows.Forms.Button();
             this.btnSpeed = new System.Windows.Forms.Button();
-           
+
             ((System.ComponentModel.ISupportInitialize)(this.BarChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,7 +154,7 @@
             this.btnSpeed.Text = "Show average speed at 2 locations";
             this.btnSpeed.UseVisualStyleBackColor = false;
             this.btnSpeed.Click += new System.EventHandler(this.btnSpeed_Click);
-           
+
             // 
             // Form1
             // 
@@ -192,4 +192,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnTempCar;
         private System.Windows.Forms.Button btnSpeed;
+    }
+}
 

@@ -27,6 +27,7 @@ namespace Project_3_Windows_form
         private void fillChartWithAverageSpeed()
         {
             BarChart.Series.Clear();
+            BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.Gray;
@@ -80,6 +81,7 @@ namespace Project_3_Windows_form
         private void btnTempCar_Click(object sender, EventArgs e)
         {
             BarChart.Series.Clear();
+            BarChart.Titles.Clear();
             BarChart.Series.Add("Average Temperature");
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.Gray;
