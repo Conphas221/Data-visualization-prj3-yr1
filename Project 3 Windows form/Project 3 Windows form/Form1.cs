@@ -91,11 +91,11 @@ namespace Project_3_Windows_form
             BarChart.Titles.Add("Weather & amount of cars");
             int count = 1;
 
-            List<WeatherNode> Weathernodes = Importer.ImportWeatherAndCars();
+            List<_2ValueNodes> Weathernodes = Importer.ImportWeatherAndCars();
 
-            foreach (WeatherNode item in Weathernodes)
+            foreach (_2ValueNodes item in Weathernodes)
             {
-                BarChart.Series["Average Temperature"].Points.AddXY(count, item.getAVGTemp());
+                BarChart.Series["Average Temperature"].Points.AddXY(count, item.getData1());
                 count = count + 1;
             }
 
@@ -103,9 +103,9 @@ namespace Project_3_Windows_form
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
             count = 1;
-            foreach (WeatherNode item in Weathernodes)
+            foreach (_2ValueNodes item in Weathernodes)
             {
-                BarChart.Series["Average car amount"].Points.AddXY(count, item.GetAVGCars());
+                BarChart.Series["Average car amount"].Points.AddXY(count, item.getData2());
                 count = count + 1;
             }
         }

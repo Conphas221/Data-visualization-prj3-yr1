@@ -151,9 +151,9 @@ namespace Project_3_Windows_form.Imports
             }
             return AVGDay;
         }
-        public List<WeatherNode> ImportWeatherAndCars()
+        public List<_2ValueNodes> ImportWeatherAndCars()
         {
-            List<WeatherNode> weatherNodes = new List<WeatherNode>();
+            List<_2ValueNodes> valueNodes = new List<_2ValueNodes>();
             try
             {
                 conn.Open();
@@ -170,7 +170,7 @@ namespace Project_3_Windows_form.Imports
                     int cars = dataReader.GetInt32("gemAuto");
                     int weather = dataReader.GetInt32("gemTemp");
                     weather = weather / 10;
-                    weatherNodes.Add(new WeatherNode(weather, cars));
+                    valueNodes.Add(new _2ValueNodes(weather, cars));
                 }
             }
             catch
@@ -181,7 +181,7 @@ namespace Project_3_Windows_form.Imports
             {
                 conn.Close();
             }
-            return weatherNodes;
+            return valueNodes;
         }
     }
 
