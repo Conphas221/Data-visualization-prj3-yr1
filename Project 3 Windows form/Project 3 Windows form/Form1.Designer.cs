@@ -39,7 +39,6 @@
 			this.btnClear = new System.Windows.Forms.Button();
 			this.btnTempCar = new System.Windows.Forms.Button();
 			this.btnSpeed = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.BarChart)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -59,7 +58,7 @@
 			legend1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.BarChart.Legends.Add(legend1);
 			this.BarChart.Location = new System.Drawing.Point(16, 15);
-			this.BarChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.BarChart.Margin = new System.Windows.Forms.Padding(4);
 			this.BarChart.Name = "BarChart";
 			series1.ChartArea = "ChartArea2";
 			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -86,7 +85,7 @@
 			this.btnSpeedCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.btnSpeedCar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSpeedCar.Location = new System.Drawing.Point(1228, 596);
-			this.btnSpeedCar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnSpeedCar.Margin = new System.Windows.Forms.Padding(4);
 			this.btnSpeedCar.Name = "btnSpeedCar";
 			this.btnSpeedCar.Size = new System.Drawing.Size(264, 28);
 			this.btnSpeedCar.TabIndex = 4;
@@ -146,14 +145,6 @@
 			this.btnSpeed.UseVisualStyleBackColor = false;
 			this.btnSpeed.Click += new System.EventHandler(this.btnSpeed_Click);
 			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(0, 0);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(100, 28);
-			this.button1.TabIndex = 0;
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -161,7 +152,6 @@
 			this.BackgroundImage = global::Project_3_Windows_form.Properties.Resources._2011;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(1713, 518);
-			this.Controls.Add(this.button1);
 			this.Controls.Add(this.btnSpeed);
 			this.Controls.Add(this.btnTempCar);
 			this.Controls.Add(this.btnClear);
@@ -171,7 +161,7 @@
 			this.Controls.Add(this.BarChart);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form1";
 			this.Text = "Form1";
 			((System.ComponentModel.ISupportInitialize)(this.BarChart)).EndInit();
@@ -189,7 +179,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnTempCar;
         private System.Windows.Forms.Button btnSpeed;
-        private System.Windows.Forms.Button button1;
     }
 }
 
