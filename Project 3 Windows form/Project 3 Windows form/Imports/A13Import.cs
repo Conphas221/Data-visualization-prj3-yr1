@@ -190,9 +190,7 @@ namespace Project_3_Windows_form.Imports
             {
                 conn.Open();
                 MySqlCommand cmd;
-                string searchQuery = @"select snelheidc78 from snelheid_c78
-                                       union
-                                       select Snelheid from snelheid;";
+                string searchQuery = @"select snelheid_c78.gemSnelheid78, snelheiddag.gemSnelheid from snelheid_c78 join snelheiddag on snelheid_c78.dag=snelheiddag.dag;";
                 cmd = new MySqlCommand(searchQuery, conn);
 
                 cmd.Prepare();
@@ -201,8 +199,8 @@ namespace Project_3_Windows_form.Imports
 
                 while (dataReader.Read())
                 {
-                    int snelheidMijlpaal78 = dataReader.GetInt32("snelheidc78");
-                    int snelheidMijlpaal142 = dataReader.GetInt32("Snelheid");
+                    int snelheidMijlpaal78 = dataReader.GetInt32("gemSnelheid78");
+                    int snelheidMijlpaal142 = dataReader.GetInt32("gemSnelheid");
                     ValueNodes.Add(new _2ValueNodes(snelheidMijlpaal78, snelheidMijlpaal142));
                 }
             }

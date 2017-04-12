@@ -151,7 +151,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = global::Project_3_Windows_form.Properties.Resources._2011;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(1713, 518);
+			this.ClientSize = new System.Drawing.Size(1654, 732);
 			this.Controls.Add(this.btnSpeed);
 			this.Controls.Add(this.btnTempCar);
 			this.Controls.Add(this.btnClear);
