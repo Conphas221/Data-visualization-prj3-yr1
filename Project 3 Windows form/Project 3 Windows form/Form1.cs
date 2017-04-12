@@ -93,10 +93,10 @@ namespace Project_3_Windows_form
             this.Close();
         }
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			Converter convert = new Converter();
-			convert.ConvertDatabase(Importer.ImportAvgCars());
-		}
-	}
+        private void Convertbutton_Click(object sender, EventArgs e)
+        {
+            Converter convert = new Converter();
+            convert.ConvertDatabase(Importer.ImportAvgCars());
+        }
+    }
 }
