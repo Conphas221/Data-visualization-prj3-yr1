@@ -17,6 +17,7 @@ namespace Project_3_Windows_form
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -41,11 +42,11 @@ namespace Project_3_Windows_form
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
-            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            BarChart.Series[0].Color = Color.Gray;
-            BarChart.Series[0].BorderColor = Color.LightBlue;
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            BarChart.Series[0].Color = Color.Red;
+            BarChart.Series[0].BorderColor = Color.Red;
             BarChart.BackColor = Color.WhiteSmoke;
-            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             BarChart.Titles.Add("Average speed & amount of cars");
             int count = 1;
             
@@ -57,7 +58,7 @@ namespace Project_3_Windows_form
             }
 
             BarChart.Series.Add("Average car amount");
-            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             count = 1;
 
             List<int> AVGcars = Importer.ImportAVGCarsAmount();
