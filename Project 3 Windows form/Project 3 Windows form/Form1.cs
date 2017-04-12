@@ -109,12 +109,14 @@ namespace Project_3_Windows_form
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            BarChart.Series.Clear();
+            BarChart.Titles.Clear();
+            BarChart.BackColor = Color.Transparent;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void Convertbutton_Click(object sender, EventArgs e)
