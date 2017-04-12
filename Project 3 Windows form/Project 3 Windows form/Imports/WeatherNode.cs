@@ -9,15 +9,15 @@ namespace Project_3_Windows_form.Imports
     public class WeatherNode
     {
         int AVGTemp;
-        int speed;
-        public WeatherNode(int AVGTemp, int speed)
+        int cars;
+        public WeatherNode(int AVGTemp, int cars)
         {
             this.AVGTemp = AVGTemp;
-            this.speed = speed;
+            this.cars = cars;
         }
-        public int GetSpeed()
+        public int GetAVGCars()
         {
-            return speed;
+            return cars;
         }
         public int getAVGTemp()
         {
