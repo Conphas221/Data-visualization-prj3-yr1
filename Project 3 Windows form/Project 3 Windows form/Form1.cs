@@ -191,13 +191,7 @@ namespace Project_3_Windows_form
             this.Close();
         }
 
-        private void Convertbutton_Click(object sender, EventArgs e)
-        {
-            Converter convert = new Converter();
-            convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void convert2_Click(object sender, EventArgs e)
         {
             Converter convert = new Converter();
             convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());

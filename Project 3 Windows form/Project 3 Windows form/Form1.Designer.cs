@@ -29,9 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BarChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Result = new System.Windows.Forms.Label();
             this.btnMinToDay = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.btnTempCar = new System.Windows.Forms.Button();
             this.btnSpeed = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.convert2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BarChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,23 +50,23 @@
             this.BarChart.BackColor = System.Drawing.Color.Transparent;
             this.BarChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BarChart.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea2";
-            this.BarChart.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.DockedToChartArea = "ChartArea2";
-            legend2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.IsDockedInsideChartArea = false;
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            legend2.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea2";
+            this.BarChart.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.DockedToChartArea = "ChartArea2";
+            legend1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsDockedInsideChartArea = false;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            legend1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarChart.Legends.Add(legend1);
             this.BarChart.Location = new System.Drawing.Point(12, 12);
             this.BarChart.Name = "BarChart";
-            series2.ChartArea = "ChartArea2";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "BarChart";
-            this.BarChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea2";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "BarChart";
+            this.BarChart.Series.Add(series1);
             this.BarChart.Size = new System.Drawing.Size(905, 369);
             this.BarChart.TabIndex = 0;
             this.BarChart.Text = "chart1";
@@ -81,9 +82,9 @@
             // 
             // btnMinToDay
             // 
-            this.btnMinToDay.Location = new System.Drawing.Point(1045, 33);
+            this.btnMinToDay.Location = new System.Drawing.Point(1037, 33);
             this.btnMinToDay.Name = "btnMinToDay";
-            this.btnMinToDay.Size = new System.Drawing.Size(52, 21);
+            this.btnMinToDay.Size = new System.Drawing.Size(60, 21);
             this.btnMinToDay.TabIndex = 3;
             this.btnMinToDay.Text = "Convert minutes to days";
             this.btnMinToDay.UseVisualStyleBackColor = true;
@@ -156,13 +157,20 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(948, 157);
+            this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.TabIndex = 0;
+            // 
+            // convert2
+            // 
+            this.convert2.Location = new System.Drawing.Point(1037, 60);
+            this.convert2.Name = "convert2";
+            this.convert2.Size = new System.Drawing.Size(60, 23);
+            this.convert2.TabIndex = 9;
+            this.convert2.Text = "convert2";
+            this.convert2.UseVisualStyleBackColor = true;
+            this.convert2.Click += new System.EventHandler(this.convert2_Click);
             // 
             // Form1
             // 
@@ -171,6 +179,7 @@
             this.BackgroundImage = global::Project_3_Windows_form.Properties.Resources._2011;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1285, 421);
+            this.Controls.Add(this.convert2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSpeed);
             this.Controls.Add(this.btnTempCar);
@@ -201,6 +210,7 @@
         private System.Windows.Forms.Button btnTempCar;
         private System.Windows.Forms.Button btnSpeed;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button convert2;
     }
 }
 
