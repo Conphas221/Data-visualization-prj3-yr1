@@ -17,6 +17,7 @@ namespace Project_3_Windows_form
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void chart1_Click(object sender, EventArgs e)
