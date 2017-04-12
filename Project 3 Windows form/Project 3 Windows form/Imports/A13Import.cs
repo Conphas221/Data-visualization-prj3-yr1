@@ -18,7 +18,7 @@ namespace Project_3_Windows_form.Imports
                 {
                     conn.Open();
                     MySqlCommand cmd;
-                    string searchQuery = @"SELECT * FROM Snelheid";
+                    string searchQuery = @"SELECT * FROM intensiteit_c78";
                     cmd = new MySqlCommand(searchQuery, conn);
 
                     cmd.Prepare();
@@ -27,7 +27,7 @@ namespace Project_3_Windows_form.Imports
 
                     while (dataReader.Read())
                     {
-                        speed.Add(dataReader.GetInt32("Snelheid"));
+                        speed.Add(dataReader.GetInt32("intensiteitc78"));
                     }
                 }
                 catch
@@ -153,7 +153,7 @@ namespace Project_3_Windows_form.Imports
         }
         public List<_2ValueNodes> ImportWeatherAndCars()
         {
-            List<_2ValueNodes> valueNodes = new List<_2ValueNodes>();
+            List<_2ValueNodes> ValueNodes = new List<_2ValueNodes>();
             try
             {
                 conn.Open();
@@ -170,7 +170,7 @@ namespace Project_3_Windows_form.Imports
                     int cars = dataReader.GetInt32("gemAuto");
                     int weather = dataReader.GetInt32("gemTemp");
                     weather = weather / 10;
-                    valueNodes.Add(new _2ValueNodes(weather, cars));
+                    ValueNodes.Add(new _2ValueNodes(weather, cars));
                 }
             }
             catch
@@ -181,11 +181,11 @@ namespace Project_3_Windows_form.Imports
             {
                 conn.Close();
             }
-            return valueNodes;
+            return ValueNodes;
         }
         public List<_2ValueNodes> Import2CarAverage()
         {
-            List<_2ValueNodes> valueNodes = new List<_2ValueNodes>();
+            List<_2ValueNodes> ValueNodes = new List<_2ValueNodes>();
             try
             {
                 conn.Open();
@@ -203,18 +203,18 @@ namespace Project_3_Windows_form.Imports
                 {
                     int snelheidMijlpaal78 = dataReader.GetInt32("snelheidc78");
                     int snelheidMijlpaal142 = dataReader.GetInt32("Snelheid");
-                    valueNodes.Add(new _2ValueNodes(snelheidMijlpaal78, snelheidMijlpaal142));
+                    ValueNodes.Add(new _2ValueNodes(snelheidMijlpaal78, snelheidMijlpaal142));
                 }
             }
             catch
             {
-                MessageBox.Show("Importing speed/weather failed");
+                MessageBox.Show("Importing average cars failed");
             }
             finally
             {
                 conn.Close();
             }
-            return valueNodes;
+            return ValueNodes;
         }
     }
 

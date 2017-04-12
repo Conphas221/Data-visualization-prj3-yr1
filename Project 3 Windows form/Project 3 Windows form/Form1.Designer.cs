@@ -41,7 +41,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnTempCar = new System.Windows.Forms.Button();
             this.btnSpeed = new System.Windows.Forms.Button();
-
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BarChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +108,7 @@
             this.btnClose.BackColor = System.Drawing.Color.Aqua;
             this.btnClose.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(11, 484);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(69, 24);
             this.btnClose.TabIndex = 5;
@@ -121,7 +121,7 @@
             this.btnClear.BackColor = System.Drawing.Color.Aqua;
             this.btnClear.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(84, 484);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(65, 24);
             this.btnClear.TabIndex = 6;
@@ -134,7 +134,7 @@
             this.btnTempCar.BackColor = System.Drawing.Color.Aqua;
             this.btnTempCar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTempCar.Location = new System.Drawing.Point(471, 485);
-            this.btnTempCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTempCar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTempCar.Name = "btnTempCar";
             this.btnTempCar.Size = new System.Drawing.Size(197, 23);
             this.btnTempCar.TabIndex = 7;
@@ -147,14 +147,23 @@
             this.btnSpeed.BackColor = System.Drawing.Color.Aqua;
             this.btnSpeed.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSpeed.Location = new System.Drawing.Point(672, 484);
-            this.btnSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.btnSpeed.Name = "btnSpeed";
             this.btnSpeed.Size = new System.Drawing.Size(244, 23);
             this.btnSpeed.TabIndex = 8;
             this.btnSpeed.Text = "Show average speed at 2 locations";
             this.btnSpeed.UseVisualStyleBackColor = false;
             this.btnSpeed.Click += new System.EventHandler(this.btnSpeed_Click);
-
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(948, 157);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -162,15 +171,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1131, 537);
+            this.ClientSize = new System.Drawing.Size(1285, 421);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSpeed);
             this.Controls.Add(this.btnTempCar);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSpeedCar);
             this.Controls.Add(this.btnMinToDay);
-            this.ClientSize = new System.Drawing.Size(1019, 421);
-
             this.Controls.Add(this.Result);
             this.Controls.Add(this.BarChart);
             this.DoubleBuffered = true;
@@ -192,6 +200,7 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnTempCar;
         private System.Windows.Forms.Button btnSpeed;
+        private System.Windows.Forms.Button button1;
     }
 }
 

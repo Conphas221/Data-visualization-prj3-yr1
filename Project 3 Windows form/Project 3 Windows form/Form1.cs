@@ -21,7 +21,19 @@ namespace Project_3_Windows_form
 
         private void chart1_Click(object sender, EventArgs e)
         {
-
+            BarChart.Series.Clear();
+            BarChart.Titles.Clear();
+            BarChart.Series.Add("Average speed");
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            BarChart.Series[0].Color = Color.Gray;
+            BarChart.Series[0].BorderColor = Color.LightBlue;
+            BarChart.BackColor = Color.WhiteSmoke;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            BarChart.Titles.Add("average car speed");
+            int count = 1;
+            List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
+            BarChart.Series["Average speed"].Points.DataBindY(AVGspeeds.ToArray());
+            count = count + 1;
         }
 
         private void fillChartWithAverageSpeed()
@@ -86,9 +98,9 @@ namespace Project_3_Windows_form
             BarChart.Titles.Add("average speed at different locations");
             int count = 1;
 
-            List<_2ValueNodes> Weathernodes = Importer.ImportWeatherAndCars();
+            List<_2ValueNodes> ValueNodes = Importer.Import2CarAverage();
 
-            foreach (_2ValueNodes item in Weathernodes)
+            foreach (_2ValueNodes item in ValueNodes)
             {
                 BarChart.Series["Mijlpaal 1"].Points.AddXY(count, item.getData1());
                 count = count + 1;
@@ -98,7 +110,7 @@ namespace Project_3_Windows_form
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line ;
 
             count = 1;
-            foreach (_2ValueNodes item in Weathernodes)
+            foreach (_2ValueNodes item in ValueNodes)
             {
                 BarChart.Series["Mijlpaal 2"].Points.AddXY(count, item.getData2());
                 count = count + 1;
@@ -119,9 +131,9 @@ namespace Project_3_Windows_form
             //BarChart.Titles.Add("Weather & amount of cars");
             //int count = 1;
 
-            //List<_2ValueNodes> Weathernodes = Importer.ImportWeatherAndCars();
+            //List<_2ValueNodes> ValueNodes = Importer.ImportWeatherAndCars();
 
-            //foreach (_2ValueNodes item in Weathernodes)
+            //foreach (_2ValueNodes item in ValueNodes)
             //{
             //    BarChart.Series["Average Temperature"].Points.AddXY(count, item.getData1());
             //    count = count + 1;
@@ -131,7 +143,7 @@ namespace Project_3_Windows_form
             //BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
             //count = 1;
-            //foreach (_2ValueNodes item in Weathernodes)
+            //foreach (_2ValueNodes item in ValueNodes)
             //{
             //    BarChart.Series["Average car amount"].Points.AddXY(count, item.getData2());
             //    count = count + 1;
@@ -181,7 +193,13 @@ namespace Project_3_Windows_form
         private void Convertbutton_Click(object sender, EventArgs e)
         {
             Converter convert = new Converter();
-            convert.ConvertDatabase(Importer.ImportAvgCars());
+            convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Converter convert = new Converter();
+            convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
         }
     }
 }

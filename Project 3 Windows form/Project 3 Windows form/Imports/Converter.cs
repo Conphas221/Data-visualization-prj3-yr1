@@ -15,7 +15,7 @@ namespace Project_3_Windows_form
         A13Import importer = new A13Import();
         public void ConvertDatabaseToNewList(List<int> data)
         {
-            createTable(@"DROP TABLE IF EXISTS snelheidDag; CREATE TABLE IF NOT EXISTS `snelheidDag` (`dag` date DEFAULT NULL, `gemSnelheid` int(11) DEFAULT NULL);");
+            createTable(@"DROP TABLE IF EXISTS snelheid_c78; CREATE TABLE IF NOT EXISTS `snelheid_c78` (`dag` date DEFAULT NULL, `gemSnelheid` int(11) DEFAULT NULL);");
             DateTime date = new DateTime(2011/1/1);
             date = date.AddYears(2010); // correction due to the original date being 0001/01/01 for unknown reasons
             date = date.Date;
@@ -64,7 +64,7 @@ namespace Project_3_Windows_form
             try
             {
                 conn.Open();
-                string query = @"INSERT INTO snelheidDag (dag, gemSnelheid) VALUES (@day, @gemSnelheid)";
+                string query = @"INSERT INTO snelheid_c78 (dag, gemSnelheid) VALUES (@day, @gemSnelheid)";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd = new MySqlCommand(query, conn);
