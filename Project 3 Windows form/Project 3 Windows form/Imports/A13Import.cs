@@ -151,14 +151,14 @@ namespace Project_3_Windows_form.Imports
             }
             return AVGDay;
         }
-        public List<WeatherNode> ImportWeatherAndSpeeds()
+        public List<_2ValueNodes> ImportWeatherAndCars()
         {
-            List<WeatherNode> weatherNodes = new List<WeatherNode>();
+            List<_2ValueNodes> valueNodes = new List<_2ValueNodes>();
             try
             {
                 conn.Open();
                 MySqlCommand cmd;
-                string searchQuery = @"SELECT .gemSnelheid, weer.gemTemp  FROM Snelheid";
+                string searchQuery = @"SELECT autosdag.gemAuto, weer.gemTemp FROM autosdag JOIN weer ON autosdag.dag=weer.datum";
                 cmd = new MySqlCommand(searchQuery, conn);
 
                 cmd.Prepare();
@@ -167,20 +167,54 @@ namespace Project_3_Windows_form.Imports
 
                 while (dataReader.Read())
                 {
-                    int speed = dataReader.GetInt32("Snelheid");
+                    int cars = dataReader.GetInt32("gemAuto");
                     int weather = dataReader.GetInt32("gemTemp");
-                    weatherNodes.Add(new WeatherNode(weather, speed));
+                    weather = weather / 10;
+                    valueNodes.Add(new _2ValueNodes(weather, cars));
                 }
             }
             catch
             {
-                MessageBox.Show("Importing speed failed");
+                MessageBox.Show("Importing speed/weather failed");
             }
             finally
             {
                 conn.Close();
             }
-            return weatherNodes;
+            return valueNodes;
+        }
+        public List<_2ValueNodes> Import2CarAverage()
+        {
+            List<_2ValueNodes> valueNodes = new List<_2ValueNodes>();
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd;
+                string searchQuery = @"select snelheidc78 from snelheid_c78
+                                       union
+                                       select Snelheid from snelheid;";
+                cmd = new MySqlCommand(searchQuery, conn);
+
+                cmd.Prepare();
+
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    int snelheidMijlpaal78 = dataReader.GetInt32("snelheidc78");
+                    int snelheidMijlpaal142 = dataReader.GetInt32("Snelheid");
+                    valueNodes.Add(new _2ValueNodes(snelheidMijlpaal78, snelheidMijlpaal142));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Importing speed/weather failed");
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return valueNodes;
         }
     }
 
