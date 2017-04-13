@@ -43,32 +43,33 @@ namespace Project_3_Windows_form
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
+            BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
             BarChart.Series[0].Color = Color.LightSkyBlue;
             BarChart.Series[0].BorderColor = Color.DeepSkyBlue;
             BarChart.BackColor = Color.WhiteSmoke;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             BarChart.Titles.Add("Average speed & amount of cars");
-            int count = 1;
-            
+            DateTime count = new DateTime(2011, 01, 1);
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
             foreach (var item in AVGspeeds)
             {
-                BarChart.Series["Average speed"].Points.AddXY(count, item);
-                count = count + 1;
+                BarChart.Series["Average speed"].Points.Add(new DataPoint(count.ToOADate(), item));
+                count = count.AddDays(1);
             }
 
             BarChart.Series.Add("Average car amount");
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
             BarChart.Series[1].Color = Color.Gray;
             BarChart.Series[1].BorderColor = Color.DarkGray;
-            count = 1;
+
+            count = new DateTime(2011, 01, 1);
 
             List<int> AVGcars = Importer.ImportAVGCarsAmount();
             foreach (var item in AVGcars)
             {
-                BarChart.Series["Average car amount"].Points.AddXY(count, item);
-                count = count + 1;
+                BarChart.Series["Average car amount"].Points.Add(new DataPoint(count.ToOADate(), item));
+                count = count.AddDays(1);
             }
 
         }
