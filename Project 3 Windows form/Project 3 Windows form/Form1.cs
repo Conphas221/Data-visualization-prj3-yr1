@@ -95,30 +95,31 @@ namespace Project_3_Windows_form
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Mijlpaal 1");
+            BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.ForestGreen;
             BarChart.Series[0].BorderColor = Color.OrangeRed;
             BarChart.BackColor = Color.WhiteSmoke;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            BarChart.Titles.Add("average speed at different locations");
-            int count = 1;
+            BarChart.Titles.Add("Average speed at different locations");
+            DateTime count = new DateTime(2011, 01, 1);
 
             List<_2ValueNodes> ValueNodes = Importer.Import2CarAverage();
 
             foreach (_2ValueNodes item in ValueNodes)
             {
-                BarChart.Series["Mijlpaal 1"].Points.AddXY(count, item.getData1());
-                count = count + 1;
+                BarChart.Series["Mijlpaal 1"].Points.Add(new DataPoint(count.ToOADate(), item.getData1()));
+                count = count.AddDays(1);
             }
 
             BarChart.Series.Add("Mijlpaal 2");
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line ;
 
-            count = 1;
+            count = new DateTime(2011, 01, 1);
             foreach (_2ValueNodes item in ValueNodes)
             {
-                BarChart.Series["Mijlpaal 2"].Points.AddXY(count, item.getData2());
-                count = count + 1;
+                BarChart.Series["Mijlpaal 2"].Points.Add(new DataPoint(count.ToOADate(), item.getData2()));
+                count = count.AddDays(1);
             }
         }
 
@@ -127,30 +128,31 @@ namespace Project_3_Windows_form
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average temperature");
+            BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.HotPink;
             BarChart.Series[0].BorderColor = Color.PeachPuff;
             BarChart.BackColor = Color.WhiteSmoke;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             BarChart.Titles.Add("Temperature & amount of cars");
-            int count = 1;
+            DateTime count = new DateTime(2011, 01, 1);
 
             List<_2ValueNodes> ValueNodes = Importer.ImportWeatherAndCars();
 
             foreach (_2ValueNodes item in ValueNodes)
             {
-                BarChart.Series["Average temperature"].Points.AddXY(count, item.getData1());
-                count = count + 1;
+                BarChart.Series["Average temperature"].Points.Add(new DataPoint(count.ToOADate(), item.getData1()));
+                count = count.AddDays(1);
             }
 
             BarChart.Series.Add("Average car amount");
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
-            count = 1;
+            count = new DateTime(2011, 01, 1);
             foreach (_2ValueNodes item in ValueNodes)
             {
                 BarChart.Series["Average car amount"].Points.AddXY(count, item.getData2());
-                count = count + 1;
+                count = count.AddDays(1);
             }
         }
         private void fill_charts(string Title, string dataSource1, string DataSource2, List<_2ValueNodes> List)
