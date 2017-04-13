@@ -226,7 +226,7 @@ namespace Project_3_Windows_form
                 {
                     
 
-                    filter filter = new filter(begin, end);
+                    DataFilter filter = new DataFilter(begin, end);
                     BarChart.DataManipulator.Filter(filter, BarChart.Series[0]);
                     BarChart.DataManipulator.Filter(filter, BarChart.Series[1]);
                 }else
@@ -255,17 +255,17 @@ namespace Project_3_Windows_form
             else if (result == "November") { begin = 305; end = 334; }
             else if (result == "Januari") { begin = 1; end = 31; }
 
-            filter filter = new filter(begin, end);
+            DataFilter filter = new DataFilter(begin, end);
             BarChart.DataManipulator.Filter(filter, BarChart.Series[0]);
             BarChart.DataManipulator.Filter(filter, BarChart.Series[1]);
         }
     }
 
-    public class filter : IDataPointFilter
+    public class DataFilter : IDataPointFilter
     {
         int beg = 0;
         int end = 365;
-        public filter (int beginning, int ending)
+        public DataFilter (int beginning, int ending)
         {
             this.beg = beginning;
             this.end = ending;
