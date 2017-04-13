@@ -31,7 +31,7 @@ namespace Project_3_Windows_form
             BarChart.Series[0].BorderColor = Color.LightBlue;
             BarChart.BackColor = Color.WhiteSmoke;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
-            BarChart.Titles.Add("average car speed");
+            BarChart.Titles.Add("Average car speed");
             int count = 1;
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
             BarChart.Series["Average speed"].Points.DataBindY(AVGspeeds.ToArray());
@@ -43,12 +43,13 @@ namespace Project_3_Windows_form
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
-            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            BarChart.Series[0].Color = Color.Red;
-            BarChart.Series[0].BorderColor = Color.Red;
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            BarChart.Series[0].Color = Color.LightSkyBlue;
+            BarChart.Series[0].BorderColor = Color.DeepSkyBlue;
             BarChart.BackColor = Color.WhiteSmoke;
-            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             BarChart.Titles.Add("Average speed & amount of cars");
+            BarChart.Titles
             int count = 1;
             
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
@@ -59,7 +60,9 @@ namespace Project_3_Windows_form
             }
 
             BarChart.Series.Add("Average car amount");
-            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            BarChart.Series[1].Color = Color.Gray;
+            BarChart.Series[1].BorderColor = Color.DarkGray;
             count = 1;
 
             List<int> AVGcars = Importer.ImportAVGCarsAmount();
@@ -97,7 +100,7 @@ namespace Project_3_Windows_form
             BarChart.Series[0].BorderColor = Color.LightBlue;
             BarChart.BackColor = Color.WhiteSmoke;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
-            BarChart.Titles.Add("average speed at different locations");
+            BarChart.Titles.Add("Average speed at different locations");
             int count = 1;
 
             List<_2ValueNodes> ValueNodes = Importer.Import2CarAverage();
@@ -123,20 +126,20 @@ namespace Project_3_Windows_form
         {
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
-            BarChart.Series.Add("Average Temperature");
+            BarChart.Series.Add("Average temperature");
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.Gray;
             BarChart.Series[0].BorderColor = Color.LightBlue;
             BarChart.BackColor = Color.WhiteSmoke;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
-            BarChart.Titles.Add("Weather & amount of cars");
+            BarChart.Titles.Add("Temperature & amount of cars");
             int count = 1;
 
             List<_2ValueNodes> ValueNodes = Importer.ImportWeatherAndCars();
 
             foreach (_2ValueNodes item in ValueNodes)
             {
-                BarChart.Series["Average Temperature"].Points.AddXY(count, item.getData1());
+                BarChart.Series["Average temperature"].Points.AddXY(count, item.getData1());
                 count = count + 1;
             }
 
