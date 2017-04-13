@@ -63,6 +63,46 @@ namespace Project_3_Windows_form.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _13_4_2017_rotterdam {
+            get {
+                object obj = ResourceManager.GetObject("13.4.2017.rotterdam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _13_4_2017_rotterdam3 {
+            get {
+                object obj = ResourceManager.GetObject("13.4.2017.rotterdam3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _13_4_2017_rotterdam4 {
+            get {
+                object obj = ResourceManager.GetObject("13.4.2017.rotterdam4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _13_4_2017_rotterdam5 {
+            get {
+                object obj = ResourceManager.GetObject("13.4.2017.rotterdam5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2011 {
             get {
                 object obj = ResourceManager.GetObject("2011", resourceCulture);
