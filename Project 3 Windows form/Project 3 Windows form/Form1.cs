@@ -93,10 +93,10 @@ namespace Project_3_Windows_form
             BarChart.Titles.Clear();
             BarChart.Series.Add("Mijlpaal 1");
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            BarChart.Series[0].Color = Color.Gray;
-            BarChart.Series[0].BorderColor = Color.LightBlue;
+            BarChart.Series[0].Color = Color.ForestGreen;
+            BarChart.Series[0].BorderColor = Color.OrangeRed;
             BarChart.BackColor = Color.WhiteSmoke;
-            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             BarChart.Titles.Add("average speed at different locations");
             int count = 1;
 
@@ -125,8 +125,8 @@ namespace Project_3_Windows_form
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average Temperature");
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            BarChart.Series[0].Color = Color.Gray;
-            BarChart.Series[0].BorderColor = Color.LightBlue;
+            BarChart.Series[0].Color = Color.HotPink;
+            BarChart.Series[0].BorderColor = Color.PeachPuff;
             BarChart.BackColor = Color.WhiteSmoke;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             BarChart.Titles.Add("Weather & amount of cars");
