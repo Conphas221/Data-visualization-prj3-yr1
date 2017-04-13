@@ -9,7 +9,7 @@ namespace Project_3_Windows_form.Imports
         public IConnection()
         {
             //Fill in the correct Database information, correct to your own database for own use
-            conn = new MySqlConnection("Uid=root;Pwd=;Database=a13;");
+            conn = new MySqlConnection("Uid=root;Database=a13;");
         }
         // Converts null values to useable values
         public string DataReaderGetStringNull(string value, MySqlDataReader dataReader)

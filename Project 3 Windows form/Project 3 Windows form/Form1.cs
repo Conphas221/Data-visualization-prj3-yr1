@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project_3_Windows_form.Imports;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Project_3_Windows_form
 {
@@ -25,7 +26,7 @@ namespace Project_3_Windows_form
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
-            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Kagi;
             BarChart.Series[0].Color = Color.Gray;
             BarChart.Series[0].BorderColor = Color.LightBlue;
             BarChart.BackColor = Color.WhiteSmoke;
@@ -120,35 +121,34 @@ namespace Project_3_Windows_form
 
         private void btnTempCar_Click(object sender, EventArgs e)
         {
-            fill_charts("Weather & amount of cars", "Average Temperature", "Average car amount", Importer.ImportWeatherAndCars());
-            //BarChart.Series.Clear();
-            //BarChart.Titles.Clear();
-            //BarChart.Series.Add("Average Temperature");
-            //BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            //BarChart.Series[0].Color = Color.Gray;
-            //BarChart.Series[0].BorderColor = Color.LightBlue;
-            //BarChart.BackColor = Color.WhiteSmoke;
-            //BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
-            //BarChart.Titles.Add("Weather & amount of cars");
-            //int count = 1;
+            BarChart.Series.Clear();
+            BarChart.Titles.Clear();
+            BarChart.Series.Add("Average Temperature");
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            BarChart.Series[0].Color = Color.Gray;
+            BarChart.Series[0].BorderColor = Color.LightBlue;
+            BarChart.BackColor = Color.WhiteSmoke;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            BarChart.Titles.Add("Weather & amount of cars");
+            int count = 1;
 
-            //List<_2ValueNodes> ValueNodes = Importer.ImportWeatherAndCars();
+            List<_2ValueNodes> ValueNodes = Importer.ImportWeatherAndCars();
 
-            //foreach (_2ValueNodes item in ValueNodes)
-            //{
-            //    BarChart.Series["Average Temperature"].Points.AddXY(count, item.getData1());
-            //    count = count + 1;
-            //}
+            foreach (_2ValueNodes item in ValueNodes)
+            {
+                BarChart.Series["Average Temperature"].Points.AddXY(count, item.getData1());
+                count = count + 1;
+            }
 
-            //BarChart.Series.Add("Average car amount");
-            //BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            BarChart.Series.Add("Average car amount");
+            BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
-            //count = 1;
-            //foreach (_2ValueNodes item in ValueNodes)
-            //{
-            //    BarChart.Series["Average car amount"].Points.AddXY(count, item.getData2());
-            //    count = count + 1;
-            //}
+            count = 1;
+            foreach (_2ValueNodes item in ValueNodes)
+            {
+                BarChart.Series["Average car amount"].Points.AddXY(count, item.getData2());
+                count = count + 1;
+            }
         }
         private void fill_charts(string Title, string dataSource1, string DataSource2, List<_2ValueNodes> List)
         {
@@ -196,5 +196,65 @@ namespace Project_3_Windows_form
             Converter convert = new Converter();
             convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
         }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (BegDay.Text.Length > 0 && EndDay.Text.Length > 0)
+            {
+                bool text = true;
+                foreach (char letter in BegDay.Text)
+                {
+                    if (!char.IsDigit(letter))
+                    {
+                        text = false;
+                    }
+                }
+                foreach (char letter in EndDay.Text)
+                {
+                    if (!char.IsDigit(letter))
+                    {
+                        text = false;
+                    }
+                }
+                int begin = Int32.Parse(BegDay.Text);
+                int end = Int32.Parse(EndDay.Text);
+
+                if (!(0 <= begin) && (begin <= 365) && (0 <= end) && (end <= 365)) { text = false; }
+                if (text == true)
+                {
+                    
+
+                    filter filter = new filter(begin, end);
+                    BarChart.DataManipulator.Filter(filter, BarChart.Series[0]);
+                    BarChart.DataManipulator.Filter(filter, BarChart.Series[1]);
+                }else
+                {
+                    MessageBox.Show("The given filter is not correct");
+                }
+            }
+        }
     }
+
+    public class filter : IDataPointFilter
+    {
+        int beg = 0;
+        int end = 365;
+        public filter (int beginning, int ending)
+        {
+            this.beg = beginning;
+            this.end = ending;
+        }
+        public bool FilterDataPoint(DataPoint point, Series series, Int32 filter_on)
+        {
+            if ((point.XValue< beg)|| (point.XValue > end))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
 }
