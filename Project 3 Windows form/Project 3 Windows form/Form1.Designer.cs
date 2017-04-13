@@ -29,9 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BarChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Result = new System.Windows.Forms.Label();
             this.btnSpeedCar = new System.Windows.Forms.Button();
@@ -55,23 +55,23 @@
             this.BarChart.BackColor = System.Drawing.Color.Transparent;
             this.BarChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BarChart.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea2";
-            this.BarChart.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.DockedToChartArea = "ChartArea2";
-            legend2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.IsDockedInsideChartArea = false;
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            legend2.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarChart.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea2";
+            this.BarChart.ChartAreas.Add(chartArea5);
+            legend5.BackColor = System.Drawing.Color.Transparent;
+            legend5.DockedToChartArea = "ChartArea2";
+            legend5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend5.IsDockedInsideChartArea = false;
+            legend5.IsTextAutoFit = false;
+            legend5.Name = "Legend1";
+            legend5.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarChart.Legends.Add(legend5);
             this.BarChart.Location = new System.Drawing.Point(12, 12);
             this.BarChart.Name = "BarChart";
-            series2.ChartArea = "ChartArea2";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "BarChart";
-            this.BarChart.Series.Add(series2);
+            series5.ChartArea = "ChartArea2";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "BarChart";
+            this.BarChart.Series.Add(series5);
             this.BarChart.Size = new System.Drawing.Size(905, 369);
             this.BarChart.TabIndex = 0;
             this.BarChart.Text = "chart1";
@@ -103,7 +103,7 @@
             this.btnClose.BackColor = System.Drawing.Color.Aqua;
             this.btnClose.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(11, 484);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(69, 24);
             this.btnClose.TabIndex = 5;
@@ -116,7 +116,7 @@
             this.btnClear.BackColor = System.Drawing.Color.Aqua;
             this.btnClear.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(84, 484);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(65, 24);
             this.btnClear.TabIndex = 6;
@@ -129,7 +129,7 @@
             this.btnTempCar.BackColor = System.Drawing.Color.Aqua;
             this.btnTempCar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTempCar.Location = new System.Drawing.Point(471, 485);
-            this.btnTempCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTempCar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTempCar.Name = "btnTempCar";
             this.btnTempCar.Size = new System.Drawing.Size(197, 23);
             this.btnTempCar.TabIndex = 7;
@@ -142,7 +142,7 @@
             this.btnSpeed.BackColor = System.Drawing.Color.Aqua;
             this.btnSpeed.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSpeed.Location = new System.Drawing.Point(672, 484);
-            this.btnSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.btnSpeed.Name = "btnSpeed";
             this.btnSpeed.Size = new System.Drawing.Size(244, 23);
             this.btnSpeed.TabIndex = 8;
@@ -211,9 +211,7 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Januari",
             "Februari",
@@ -224,7 +222,7 @@
             "July",
             "August",
             "September",
-            "Oktober\'",
+            "Oktober",
             "November",
             "December"});
             this.comboBox1.Location = new System.Drawing.Point(345, 446);
@@ -242,6 +240,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Filter";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 

@@ -233,6 +233,30 @@ namespace Project_3_Windows_form
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int begin = 0;
+            int end = 0;
+            string result = comboBox1.Text;
+
+            if (result == "December") { begin = 335; end = 365; }
+            else if (result == "Februari") { begin = 32; end = 59; }
+            else if (result == "March") { begin = 60; end = 90; }
+            else if (result == "April") { begin = 91; end = 120; }
+            else if (result == "May") { begin = 121; end = 151; }
+            else if (result == "June") { begin = 152; end = 181; }
+            else if (result == "July") { begin = 182; end = 212; }
+            else if (result == "August") { begin = 213; end = 243; }
+            else if (result == "September") { begin = 244; end = 273; }
+            else if (result == "Oktober") { begin = 274; end = 304; }
+            else if (result == "November") { begin = 305; end = 334; }
+            else if (result == "Januari") { begin = 1; end = 31; }
+
+            filter filter = new filter(begin, end);
+            BarChart.DataManipulator.Filter(filter, BarChart.Series[0]);
+            BarChart.DataManipulator.Filter(filter, BarChart.Series[1]);
+        }
     }
 
     public class filter : IDataPointFilter
@@ -246,7 +270,7 @@ namespace Project_3_Windows_form
         }
         public bool FilterDataPoint(DataPoint point, Series series, Int32 filter_on)
         {
-            if ((point.XValue< beg)|| (point.XValue > end))
+            if ((point.XValue <= beg)|| (point.XValue >= end))
             {
                 return true;
             }
