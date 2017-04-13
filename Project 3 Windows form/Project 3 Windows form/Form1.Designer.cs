@@ -2,7 +2,6 @@
 {
     partial class Form1
     {
-        Game game = new Game();
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -67,7 +66,7 @@
             legend1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BarChart.Legends.Add(legend1);
             this.BarChart.Location = new System.Drawing.Point(9, 10);
-            this.BarChart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BarChart.Margin = new System.Windows.Forms.Padding(2);
             this.BarChart.Name = "BarChart";
             series1.ChartArea = "ChartArea2";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -105,7 +104,7 @@
             this.btnClose.BackColor = System.Drawing.Color.Aqua;
             this.btnClose.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(11, 484);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(69, 24);
             this.btnClose.TabIndex = 5;
@@ -118,7 +117,7 @@
             this.btnClear.BackColor = System.Drawing.Color.Aqua;
             this.btnClear.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(84, 484);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(65, 24);
             this.btnClear.TabIndex = 6;
@@ -131,7 +130,7 @@
             this.btnTempCar.BackColor = System.Drawing.Color.Aqua;
             this.btnTempCar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTempCar.Location = new System.Drawing.Point(471, 485);
-            this.btnTempCar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTempCar.Margin = new System.Windows.Forms.Padding(2);
             this.btnTempCar.Name = "btnTempCar";
             this.btnTempCar.Size = new System.Drawing.Size(197, 23);
             this.btnTempCar.TabIndex = 7;
@@ -144,7 +143,7 @@
             this.btnSpeed.BackColor = System.Drawing.Color.Aqua;
             this.btnSpeed.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSpeed.Location = new System.Drawing.Point(672, 484);
-            this.btnSpeed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSpeed.Margin = new System.Windows.Forms.Padding(2);
             this.btnSpeed.Name = "btnSpeed";
             this.btnSpeed.Size = new System.Drawing.Size(244, 23);
             this.btnSpeed.TabIndex = 8;
@@ -169,6 +168,7 @@
             this.BegDay.Name = "BegDay";
             this.BegDay.Size = new System.Drawing.Size(52, 20);
             this.BegDay.TabIndex = 13;
+            this.BegDay.Text = "z";
             // 
             // Begin
             // 

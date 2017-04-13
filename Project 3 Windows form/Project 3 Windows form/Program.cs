@@ -19,7 +19,6 @@ namespace Project_3_Windows_form
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new Form1());
-            Game game = new Game();
         }
     }
 }

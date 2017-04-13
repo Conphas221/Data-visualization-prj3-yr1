@@ -151,9 +151,9 @@ namespace Project_3_Windows_form.Imports
             }
             return AVGDay;
         }
-        public List<_2ValueNodes> ImportWeatherAndCars()
+        public List<Tuple<int,int>> ImportWeatherAndCars()
         {
-            List<_2ValueNodes> ValueNodes = new List<_2ValueNodes>();
+            List<Tuple<int, int>> ValueNodes = new List<Tuple<int,int>>();
             try
             {
                 conn.Open();
@@ -170,7 +170,7 @@ namespace Project_3_Windows_form.Imports
                     int cars = dataReader.GetInt32("gemAuto");
                     int weather = dataReader.GetInt32("gemTemp");
                     weather = weather / 10;
-                    ValueNodes.Add(new _2ValueNodes(weather, cars));
+                    ValueNodes.Add(new Tuple<int, int> (weather, cars));
                 }
             }
             catch
@@ -183,9 +183,9 @@ namespace Project_3_Windows_form.Imports
             }
             return ValueNodes;
         }
-        public List<_2ValueNodes> Import2CarAverage()
+        public List<Tuple<int, int>> Import2CarAverage()
         {
-            List<_2ValueNodes> ValueNodes = new List<_2ValueNodes>();
+            List<Tuple<int,int>> ValueNodes = new List<Tuple<int,int>>();
             try
             {
                 conn.Open();
@@ -201,7 +201,7 @@ namespace Project_3_Windows_form.Imports
                 {
                     int snelheidMijlpaal78 = dataReader.GetInt32("gemSnelheid78");
                     int snelheidMijlpaal142 = dataReader.GetInt32("gemSnelheid");
-                    ValueNodes.Add(new _2ValueNodes(snelheidMijlpaal78, snelheidMijlpaal142));
+                    ValueNodes.Add(new Tuple<int,int> (snelheidMijlpaal78, snelheidMijlpaal142));
                 }
             }
             catch
