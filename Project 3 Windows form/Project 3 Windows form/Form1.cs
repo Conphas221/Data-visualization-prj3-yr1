@@ -109,11 +109,11 @@ namespace Project_3_Windows_form
             BarChart.Titles.Add("Average speed at different locations");
             DateTime count = new DateTime(2011, 01, 1);
 
-            List<_2ValueNodes> ValueNodes = Importer.Import2CarAverage();
+            List<Tuple<int,int>> ValueNodes = Importer.Import2CarAverage();
 
-            foreach (_2ValueNodes item in ValueNodes)
+            foreach (Tuple<int,int> item in ValueNodes)
             {
-                BarChart.Series["Mijlpaal 1"].Points.Add(new DataPoint(count.ToOADate(), item.getData1()));
+                BarChart.Series["Mijlpaal 1"].Points.Add(new DataPoint(count.ToOADate(), item.Item1));
                 count = count.AddDays(1);
             }
 
@@ -121,9 +121,9 @@ namespace Project_3_Windows_form
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line ;
 
             count = new DateTime(2011, 01, 1);
-            foreach (_2ValueNodes item in ValueNodes)
+            foreach (Tuple<int,int> item in ValueNodes)
             {
-                BarChart.Series["Mijlpaal 2"].Points.Add(new DataPoint(count.ToOADate(), item.getData2()));
+                BarChart.Series["Mijlpaal 2"].Points.Add(new DataPoint(count.ToOADate(), item.Item2));
                 count = count.AddDays(1);
             }
         }
@@ -145,11 +145,11 @@ namespace Project_3_Windows_form
             BarChart.Titles.Add("Temperature & amount of cars");
             DateTime count = new DateTime(2011, 01, 1);
 
-            List<_2ValueNodes> ValueNodes = Importer.ImportWeatherAndCars();
+            List<Tuple<int,int>> ValueNodes = Importer.ImportWeatherAndCars();
 
-            foreach (_2ValueNodes item in ValueNodes)
+            foreach (Tuple<int,int> item in ValueNodes)
             {
-                BarChart.Series["Average temperature"].Points.Add(new DataPoint(count.ToOADate(), item.getData1()));
+                BarChart.Series["Average temperature"].Points.Add(new DataPoint(count.ToOADate(), item.Item1));
                 count = count.AddDays(1);
             }
 
@@ -157,13 +157,13 @@ namespace Project_3_Windows_form
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
             count = new DateTime(2011, 01, 1);
-            foreach (_2ValueNodes item in ValueNodes)
+            foreach (Tuple<int,int> item in ValueNodes)
             {
-                BarChart.Series["Average car amount"].Points.AddXY(count, item.getData2());
+                BarChart.Series["Average car amount"].Points.AddXY(count, item.Item2);
                 count = count.AddDays(1);
             }
         }
-        private void fill_charts(string Title, string dataSource1, string DataSource2, List<_2ValueNodes> List)
+        private void fill_charts(string Title, string dataSource1, string DataSource2, List<Tuple<int,int>> List)
         {
             FilterButton.Enabled = true;
             button1.Enabled = true;
@@ -178,9 +178,9 @@ namespace Project_3_Windows_form
             BarChart.Titles.Add(Title);
             int count = 1;
 
-            foreach (_2ValueNodes item in List)
+            foreach (Tuple<int,int> item in List)
             {
-                BarChart.Series[dataSource1].Points.AddXY(count, item.getData1());
+                BarChart.Series[dataSource1].Points.AddXY(count, item.Item1);
                 count = count + 1;
             }
 
@@ -188,9 +188,9 @@ namespace Project_3_Windows_form
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
             count = 1;
-            foreach (_2ValueNodes item in List)
+            foreach (Tuple<int,int> item in List)
             {
-                BarChart.Series[DataSource2].Points.AddXY(count, item.getData2());
+                BarChart.Series[DataSource2].Points.AddXY(count, item.Item2);
                 count = count + 1;
             }
         }
