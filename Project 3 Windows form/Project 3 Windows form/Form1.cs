@@ -221,32 +221,29 @@ namespace Project_3_Windows_form
             {
                 bool text = true;
                 foreach (char letter in BegDay.Text)
-                {
-                    if (!char.IsDigit(letter))
-                    {
-                        text = false;
-                    }
+                {if (!char.IsDigit(letter)){text = false;}
                 }
                 foreach (char letter in BegMonth.Text)
-                {
-                    if (!char.IsDigit(letter))
-                    {
-                        text = false;
-                    }
+                {if (!char.IsDigit(letter)){text = false;}
                 }
-                int BeginingMonth = Int32.Parse(BegMonth.Text);
-                int BeginingDay = Int32.Parse(BegDay.Text);
+                foreach (char letter in EndDay.Text)
+                {if (!char.IsDigit(letter)){ text = false;}
+                }
+                foreach (char letter in EndMonth.Text)
+                {if (!char.IsDigit(letter)){ text = false;}
+                }
+
+                int BeginningMonth = Int32.Parse(BegMonth.Text);
+                int BeginningDay = Int32.Parse(BegDay.Text);
                 int EndingMonth= Int32.Parse(EndMonth.Text);
                 int EndingDay = Int32.Parse(EndDay.Text);
 
-                DateTime begin = new DateTime(2011, BeginingMonth, BeginingDay);
-                DateTime end = new DateTime(2011, EndingMonth, EndingDay);
-
-
-                //if (!(0 <= begin) && (begin <= 365) && (0 <= end) && (end <= 365)) { text = false; }
+                if ((1 >= BeginningDay) && (BeginningDay <= 31) && (1 >= EndingDay) && (EndingDay <= 31)) { text = false; }
+                if ((1 >= BeginningMonth) && (BeginningDay <= 12) && (1 >= EndingMonth) && (EndingMonth <= 12)) { text = false; }
                 if (text == true)
                 {
-                    
+                    DateTime begin = new DateTime(2011, BeginningMonth, BeginningDay);
+                    DateTime end = new DateTime(2011, EndingMonth, EndingDay);
 
                     DataFilter filter = new DataFilter(begin, end);
                     BarChart.DataManipulator.Filter(filter, BarChart.Series[0]);

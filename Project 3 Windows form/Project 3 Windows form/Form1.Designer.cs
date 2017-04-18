@@ -29,9 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BarChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Result = new System.Windows.Forms.Label();
             this.btnSpeedCar = new System.Windows.Forms.Button();
@@ -58,25 +58,25 @@
             this.BarChart.BackColor = System.Drawing.Color.Transparent;
             this.BarChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BarChart.BorderlineColor = System.Drawing.Color.Black;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea2";
-            this.BarChart.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.DockedToChartArea = "ChartArea2";
-            legend1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.IsDockedInsideChartArea = false;
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            legend1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarChart.Legends.Add(legend1);
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea2";
+            this.BarChart.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.DockedToChartArea = "ChartArea2";
+            legend2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.IsDockedInsideChartArea = false;
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            legend2.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarChart.Legends.Add(legend2);
             this.BarChart.Location = new System.Drawing.Point(11, 10);
             this.BarChart.Margin = new System.Windows.Forms.Padding(2);
             this.BarChart.Name = "BarChart";
-            series1.ChartArea = "ChartArea2";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "BarChart";
-            this.BarChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea2";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "BarChart";
+            this.BarChart.Series.Add(series2);
             this.BarChart.Size = new System.Drawing.Size(1172, 377);
             this.BarChart.TabIndex = 0;
             this.BarChart.Text = "chart1";
@@ -166,7 +166,7 @@
             this.Day.BackColor = System.Drawing.Color.Indigo;
             this.Day.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Day.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.Day.Location = new System.Drawing.Point(365, 498);
+            this.Day.Location = new System.Drawing.Point(280, 498);
             this.Day.Name = "Day";
             this.Day.Size = new System.Drawing.Size(32, 16);
             this.Day.TabIndex = 11;
@@ -174,7 +174,7 @@
             // 
             // BegDay
             // 
-            this.BegDay.Location = new System.Drawing.Point(357, 436);
+            this.BegDay.Location = new System.Drawing.Point(271, 436);
             this.BegDay.Name = "BegDay";
             this.BegDay.Size = new System.Drawing.Size(52, 20);
             this.BegDay.TabIndex = 13;
@@ -185,7 +185,7 @@
             this.Begin.BackColor = System.Drawing.Color.Indigo;
             this.Begin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Begin.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.Begin.Location = new System.Drawing.Point(225, 440);
+            this.Begin.Location = new System.Drawing.Point(215, 440);
             this.Begin.Name = "Begin";
             this.Begin.Size = new System.Drawing.Size(45, 16);
             this.Begin.TabIndex = 17;
@@ -219,7 +219,7 @@
             // 
             // BegMonth
             // 
-            this.BegMonth.Location = new System.Drawing.Point(271, 436);
+            this.BegMonth.Location = new System.Drawing.Point(357, 436);
             this.BegMonth.Name = "BegMonth";
             this.BegMonth.Size = new System.Drawing.Size(52, 20);
             this.BegMonth.TabIndex = 16;
@@ -261,14 +261,14 @@
             // 
             // EndMonth
             // 
-            this.EndMonth.Location = new System.Drawing.Point(271, 468);
+            this.EndMonth.Location = new System.Drawing.Point(357, 468);
             this.EndMonth.Name = "EndMonth";
             this.EndMonth.Size = new System.Drawing.Size(52, 20);
             this.EndMonth.TabIndex = 22;
             // 
             // EndDay
             // 
-            this.EndDay.Location = new System.Drawing.Point(357, 468);
+            this.EndDay.Location = new System.Drawing.Point(271, 468);
             this.EndDay.Name = "EndDay";
             this.EndDay.Size = new System.Drawing.Size(52, 20);
             this.EndDay.TabIndex = 23;
@@ -279,7 +279,7 @@
             this.Month.BackColor = System.Drawing.Color.Indigo;
             this.Month.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Month.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.Month.Location = new System.Drawing.Point(276, 498);
+            this.Month.Location = new System.Drawing.Point(360, 498);
             this.Month.Name = "Month";
             this.Month.Size = new System.Drawing.Size(47, 16);
             this.Month.TabIndex = 24;
