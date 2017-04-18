@@ -30,11 +30,11 @@ namespace Project_3_Windows_form
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
-            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Kagi;
-            BarChart.Series[0].Color = Color.Gray;
-            BarChart.Series[0].BorderColor = Color.LightBlue;
-            BarChart.BackColor = Color.WhiteSmoke;
-            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+            BarChart.Series[0].Color = Color.HotPink;
+            BarChart.Series[0].BorderColor = Color.HotPink;
+            BarChart.BackColor = Color.Purple;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             BarChart.Titles.Add("Average car speed");
             int count = 1;
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
@@ -66,8 +66,8 @@ namespace Project_3_Windows_form
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
             BarChart.Series[0].Color = Color.LightSkyBlue;
             BarChart.Series[0].BorderColor = Color.DeepSkyBlue;
-            BarChart.BackColor = Color.WhiteSmoke;
-            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            BarChart.BackColor = Color.HotPink;
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             BarChart.Titles.Add("Average speed & amount of cars");
             DateTime count = new DateTime(2011, 01, 1);
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
@@ -104,7 +104,7 @@ namespace Project_3_Windows_form
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.ForestGreen;
             BarChart.Series[0].BorderColor = Color.OrangeRed;
-            BarChart.BackColor = Color.WhiteSmoke;
+            BarChart.BackColor = Color.FromArgb(55,225,186);
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             BarChart.Titles.Add("Average speed at different locations");
             DateTime count = new DateTime(2011, 01, 1);
@@ -140,7 +140,7 @@ namespace Project_3_Windows_form
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.HotPink;
             BarChart.Series[0].BorderColor = Color.PeachPuff;
-            BarChart.BackColor = Color.WhiteSmoke;
+            BarChart.BackColor = Color.FromArgb(236, 219, 131);
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             BarChart.Titles.Add("Temperature & amount of cars");
             DateTime count = new DateTime(2011, 01, 1);
