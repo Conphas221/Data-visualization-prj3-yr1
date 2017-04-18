@@ -14,6 +14,7 @@ namespace Project_3_Windows_form
 {
     public partial class Form1 : Form
     {
+        int graph = 1;
         A13Import Importer = new A13Import();
         public Form1()
         {
@@ -23,6 +24,9 @@ namespace Project_3_Windows_form
 
         private void chart1_Click(object sender, EventArgs e)
         {
+            graph = 0;
+            FilterButton.Enabled = true;
+            button1.Enabled = true;
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
@@ -38,8 +42,23 @@ namespace Project_3_Windows_form
             count = count + 1;
         }
 
-        private void fillChartWithAverageSpeed()
+        private void btnMinToDay_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Do you really want to convert the speeds?", "convert", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Converter convert = new Converter();
+                convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
+            }
+
+        }
+
+        private void btnSpeedCar_Click(object sender, EventArgs e)
+        {
+            // gemiddelde snelheid lijst int & deze snelheden toevoegd aan de barchart
+            this.graph = 1;
+            FilterButton.Enabled = true;
+            button1.Enabled = true;
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average speed");
@@ -71,27 +90,13 @@ namespace Project_3_Windows_form
                 BarChart.Series["Average car amount"].Points.Add(new DataPoint(count.ToOADate(), item));
                 count = count.AddDays(1);
             }
-
-        }
-        private void btnMinToDay_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Do you really want to convert the speeds?", "convert", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Converter convert = new Converter();
-                convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
-            }
-
-        }
-
-        private void btnSpeedCar_Click(object sender, EventArgs e)
-        {
-            // gemiddelde snelheid lijst int & deze snelheden toevoegd aan de barchart
-            fillChartWithAverageSpeed();
         }
 
         private void btnSpeed_Click(object sender, EventArgs e)
         {
+            this.graph = 2;
+            FilterButton.Enabled = true;
+            button1.Enabled = true;
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Mijlpaal 1");
@@ -125,6 +130,9 @@ namespace Project_3_Windows_form
 
         private void btnTempCar_Click(object sender, EventArgs e)
         {
+            this.graph = 3;
+            FilterButton.Enabled = true;
+            button1.Enabled = true;
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add("Average temperature");
@@ -157,6 +165,8 @@ namespace Project_3_Windows_form
         }
         private void fill_charts(string Title, string dataSource1, string DataSource2, List<_2ValueNodes> List)
         {
+            FilterButton.Enabled = true;
+            button1.Enabled = true;
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.Series.Add(dataSource1);
@@ -186,6 +196,8 @@ namespace Project_3_Windows_form
         }
         private void btnClear_Click(object sender, EventArgs e)
         {
+            FilterButton.Enabled = false;
+            button1.Enabled = false;
             BarChart.Series.Clear();
             BarChart.Titles.Clear();
             BarChart.BackColor = Color.Transparent;
@@ -204,7 +216,8 @@ namespace Project_3_Windows_form
 
         private void FilterButton_Click(object sender, EventArgs e)
         {
-            if (BegDay.Text.Length > 0 && EndDay.Text.Length > 0)
+            resetchart(sender, e);
+            if (BegDay.Text.Length > 0 && BegMonth.Text.Length > 0)
             {
                 bool text = true;
                 foreach (char letter in BegDay.Text)
@@ -214,17 +227,23 @@ namespace Project_3_Windows_form
                         text = false;
                     }
                 }
-                foreach (char letter in EndDay.Text)
+                foreach (char letter in BegMonth.Text)
                 {
                     if (!char.IsDigit(letter))
                     {
                         text = false;
                     }
                 }
-                int begin = Int32.Parse(BegDay.Text);
-                int end = Int32.Parse(EndDay.Text);
+                int BeginingMonth = Int32.Parse(BegMonth.Text);
+                int BeginingDay = Int32.Parse(BegDay.Text);
+                int EndingMonth= Int32.Parse(EndMonth.Text);
+                int EndingDay = Int32.Parse(EndDay.Text);
 
-                if (!(0 <= begin) && (begin <= 365) && (0 <= end) && (end <= 365)) { text = false; }
+                DateTime begin = new DateTime(2011, BeginingMonth, BeginingDay);
+                DateTime end = new DateTime(2011, EndingMonth, EndingDay);
+
+
+                //if (!(0 <= begin) && (begin <= 365) && (0 <= end) && (end <= 365)) { text = false; }
                 if (text == true)
                 {
                     
@@ -241,41 +260,59 @@ namespace Project_3_Windows_form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int begin = 0;
-            int end = 0;
+            resetchart(sender, e);
+            DateTime begin= new DateTime();
+            DateTime end = new DateTime();
             string result = comboBox1.Text;
 
-            if (result == "December") { begin = 335; end = 365; }
-            else if (result == "Februari") { begin = 32; end = 59; }
-            else if (result == "March") { begin = 60; end = 90; }
-            else if (result == "April") { begin = 91; end = 120; }
-            else if (result == "May") { begin = 121; end = 151; }
-            else if (result == "June") { begin = 152; end = 181; }
-            else if (result == "July") { begin = 182; end = 212; }
-            else if (result == "August") { begin = 213; end = 243; }
-            else if (result == "September") { begin = 244; end = 273; }
-            else if (result == "Oktober") { begin = 274; end = 304; }
-            else if (result == "November") { begin = 305; end = 334; }
-            else if (result == "Januari") { begin = 1; end = 31; }
+            if (result == "December") { begin = new DateTime(2011,11,30); end = new DateTime(2012, 1, 1); }
+            else if (result == "Februari") { begin = new DateTime(2011, 1, 31); end = new DateTime(2011, 3, 1); }
+            else if (result == "March") { begin = new DateTime(2011, 2, 28); end = new DateTime(2011, 4, 1); }
+            else if (result == "April") { begin = new DateTime(2011, 3, 31); end = new DateTime(2011, 5, 1); }
+            else if (result == "May") { begin = new DateTime(2011, 4, 30); end = new DateTime(2011, 6, 1); }
+            else if (result == "June") { begin = new DateTime(2011, 5, 31); end = new DateTime(2011, 7, 1); }
+            else if (result == "July") { begin = new DateTime(2011, 6, 30); end = new DateTime(2011, 8, 1); }
+            else if (result == "August") { begin = new DateTime(2011, 7, 31); end = new DateTime(2011, 9, 1); }
+            else if (result == "September") { begin = new DateTime(2011, 8, 31); end = new DateTime(2011, 10, 1); }
+            else if (result == "Oktober") { begin = new DateTime(2011, 9, 30); end = new DateTime(2011, 11, 1); }
+            else if (result == "November") { begin = new DateTime(2011, 10, 31); end = new DateTime(2011, 12, 1); }
+            else { begin = new DateTime(2010, 12, 31); end = new DateTime(2011, 2, 1); }
 
             DataFilter filter = new DataFilter(begin, end);
             BarChart.DataManipulator.Filter(filter, BarChart.Series[0]);
             BarChart.DataManipulator.Filter(filter, BarChart.Series[1]);
         }
+        public void resetchart(object sender, EventArgs e)
+        {
+            if (graph == 1)
+            {
+                btnSpeedCar_Click(sender, e);
+            }
+            else if (graph == 2)
+            {
+                btnSpeed_Click(sender, e);
+
+            }
+            else
+            {
+                btnTempCar_Click(sender, e);
+            }
+        }
     }
 
     public class DataFilter : IDataPointFilter
     {
-        int beg = 0;
-        int end = 365;
-        public DataFilter (int beginning, int ending)
+        DateTime beg;
+        DateTime end;
+
+        public DataFilter (DateTime beginning, DateTime ending)
         {
             this.beg = beginning;
             this.end = ending;
         }
         public bool FilterDataPoint(DataPoint point, Series series, Int32 filter_on)
         {
-            if ((point.XValue <= beg)|| (point.XValue >= end))
+            if ((point.XValue <= beg.ToOADate())|| (point.XValue >= end.ToOADate()))
             {
                 return true;
             }

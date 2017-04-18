@@ -29,9 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BarChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Result = new System.Windows.Forms.Label();
             this.btnSpeedCar = new System.Windows.Forms.Button();
@@ -44,9 +44,12 @@
             this.Begin = new System.Windows.Forms.Label();
             this.FilterButton = new System.Windows.Forms.Button();
             this.End = new System.Windows.Forms.Label();
-            this.EndDay = new System.Windows.Forms.TextBox();
+            this.BegMonth = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.EndMonth = new System.Windows.Forms.TextBox();
+            this.EndDay = new System.Windows.Forms.TextBox();
+            this.Month = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BarChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,25 +58,25 @@
             this.BarChart.BackColor = System.Drawing.Color.Transparent;
             this.BarChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BarChart.BorderlineColor = System.Drawing.Color.Black;
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea2";
-            this.BarChart.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.DockedToChartArea = "ChartArea2";
-            legend3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsDockedInsideChartArea = false;
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            legend3.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarChart.Legends.Add(legend3);
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea2";
+            this.BarChart.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.DockedToChartArea = "ChartArea2";
+            legend1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.IsDockedInsideChartArea = false;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            legend1.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarChart.Legends.Add(legend1);
             this.BarChart.Location = new System.Drawing.Point(11, 10);
             this.BarChart.Margin = new System.Windows.Forms.Padding(2);
             this.BarChart.Name = "BarChart";
-            series3.ChartArea = "ChartArea2";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "BarChart";
-            this.BarChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea2";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "BarChart";
+            this.BarChart.Series.Add(series1);
             this.BarChart.Size = new System.Drawing.Size(1172, 377);
             this.BarChart.TabIndex = 0;
             this.BarChart.Text = "chart1";
@@ -163,7 +166,7 @@
             this.Day.BackColor = System.Drawing.Color.Indigo;
             this.Day.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Day.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.Day.Location = new System.Drawing.Point(341, 449);
+            this.Day.Location = new System.Drawing.Point(365, 498);
             this.Day.Name = "Day";
             this.Day.Size = new System.Drawing.Size(32, 16);
             this.Day.TabIndex = 11;
@@ -171,7 +174,7 @@
             // 
             // BegDay
             // 
-            this.BegDay.Location = new System.Drawing.Point(285, 410);
+            this.BegDay.Location = new System.Drawing.Point(357, 436);
             this.BegDay.Name = "BegDay";
             this.BegDay.Size = new System.Drawing.Size(52, 20);
             this.BegDay.TabIndex = 13;
@@ -182,7 +185,7 @@
             this.Begin.BackColor = System.Drawing.Color.Indigo;
             this.Begin.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Begin.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.Begin.Location = new System.Drawing.Point(282, 449);
+            this.Begin.Location = new System.Drawing.Point(225, 440);
             this.Begin.Name = "Begin";
             this.Begin.Size = new System.Drawing.Size(45, 16);
             this.Begin.TabIndex = 17;
@@ -191,9 +194,10 @@
             // FilterButton
             // 
             this.FilterButton.BackColor = System.Drawing.Color.Indigo;
+            this.FilterButton.Enabled = false;
             this.FilterButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FilterButton.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.FilterButton.Location = new System.Drawing.Point(310, 484);
+            this.FilterButton.Location = new System.Drawing.Point(289, 533);
             this.FilterButton.Name = "FilterButton";
             this.FilterButton.Size = new System.Drawing.Size(75, 23);
             this.FilterButton.TabIndex = 19;
@@ -207,18 +211,18 @@
             this.End.BackColor = System.Drawing.Color.Indigo;
             this.End.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.End.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.End.Location = new System.Drawing.Point(388, 449);
+            this.End.Location = new System.Drawing.Point(225, 472);
             this.End.Name = "End";
             this.End.Size = new System.Drawing.Size(32, 16);
             this.End.TabIndex = 18;
             this.End.Text = "End";
             // 
-            // EndDay
+            // BegMonth
             // 
-            this.EndDay.Location = new System.Drawing.Point(370, 410);
-            this.EndDay.Name = "EndDay";
-            this.EndDay.Size = new System.Drawing.Size(48, 20);
-            this.EndDay.TabIndex = 16;
+            this.BegMonth.Location = new System.Drawing.Point(271, 436);
+            this.BegMonth.Name = "BegMonth";
+            this.BegMonth.Size = new System.Drawing.Size(52, 20);
+            this.BegMonth.TabIndex = 16;
             // 
             // comboBox1
             // 
@@ -236,7 +240,7 @@
             "Oktober",
             "November",
             "December"});
-            this.comboBox1.Location = new System.Drawing.Point(500, 449);
+            this.comboBox1.Location = new System.Drawing.Point(500, 481);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(104, 21);
             this.comboBox1.TabIndex = 20;
@@ -244,15 +248,42 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Indigo;
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.button1.Location = new System.Drawing.Point(500, 484);
+            this.button1.Location = new System.Drawing.Point(500, 524);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(104, 23);
             this.button1.TabIndex = 21;
             this.button1.Text = "Filter";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // EndMonth
+            // 
+            this.EndMonth.Location = new System.Drawing.Point(271, 468);
+            this.EndMonth.Name = "EndMonth";
+            this.EndMonth.Size = new System.Drawing.Size(52, 20);
+            this.EndMonth.TabIndex = 22;
+            // 
+            // EndDay
+            // 
+            this.EndDay.Location = new System.Drawing.Point(357, 468);
+            this.EndDay.Name = "EndDay";
+            this.EndDay.Size = new System.Drawing.Size(52, 20);
+            this.EndDay.TabIndex = 23;
+            // 
+            // Month
+            // 
+            this.Month.AutoSize = true;
+            this.Month.BackColor = System.Drawing.Color.Indigo;
+            this.Month.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Month.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.Month.Location = new System.Drawing.Point(276, 498);
+            this.Month.Name = "Month";
+            this.Month.Size = new System.Drawing.Size(47, 16);
+            this.Month.TabIndex = 24;
+            this.Month.Text = "Month";
             // 
             // Form1
             // 
@@ -261,12 +292,15 @@
             this.BackgroundImage = global::Project_3_Windows_form.Properties.Resources._13_4_2017_rotterdam5;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1206, 595);
+            this.Controls.Add(this.Month);
+            this.Controls.Add(this.EndDay);
+            this.Controls.Add(this.EndMonth);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.FilterButton);
             this.Controls.Add(this.End);
             this.Controls.Add(this.Begin);
-            this.Controls.Add(this.EndDay);
+            this.Controls.Add(this.BegMonth);
             this.Controls.Add(this.BegDay);
             this.Controls.Add(this.Day);
             this.Controls.Add(this.btnSpeed);
@@ -300,9 +334,12 @@
         private System.Windows.Forms.Label Begin;
         private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Label End;
-        private System.Windows.Forms.TextBox EndDay;
+        private System.Windows.Forms.TextBox BegMonth;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox EndMonth;
+        private System.Windows.Forms.TextBox EndDay;
+        private System.Windows.Forms.Label Month;
     }
 }
 
