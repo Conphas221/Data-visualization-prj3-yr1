@@ -29,30 +29,34 @@ namespace Project_3_Windows_form
             clearTable();
 
             BarChart.Series.Add("Average speed");
-            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-            BarChart.Series[0].Color = Color.HotPink;
-            BarChart.Series[0].BorderColor = Color.HotPink;
-            BarChart.BackColor = Color.Purple;
-            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            BarChart.Size = new Size(650, 500);
+            BarChart.Location = new System.Drawing.Point(290, 0);
+            BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Radar;
+            BarChart.Series[0].Color = Color.Red;
+            BarChart.Series[0].BorderColor = Color.CornflowerBlue;
+            BarChart.BackColor = Color.FromArgb(255, 222, 251);
+            BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             BarChart.Titles.Add("Average car speed");
             int count = 1;
             //adds a list of values for the table to draw
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
             BarChart.Series["Average speed"].Points.DataBindY(AVGspeeds.ToArray());
             count = count + 1;
-        }
+         }
 
         private void btnSpeedCar_Click(object sender, EventArgs e)
         {
             // Sets new values for the new table
             this.graph = 1;
+            BarChart.Size = new System.Drawing.Size(1172, 377);
+            BarChart.Location = new System.Drawing.Point(11, 10);
             clearTable();
             BarChart.Series.Add("Average speed");
             BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
             BarChart.Series[0].Color = Color.LightSkyBlue;
             BarChart.Series[0].BorderColor = Color.DeepSkyBlue;
-            BarChart.BackColor = Color.HotPink;
+            BarChart.BackColor = Color.FromArgb(238, 243, 255);
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             BarChart.Titles.Add("Average speed & amount of cars");
 
@@ -87,13 +91,15 @@ namespace Project_3_Windows_form
         private void btnSpeed_Click(object sender, EventArgs e)
         {
             this.graph = 2;
+            BarChart.Location = new System.Drawing.Point(11, 10);
+            BarChart.Size = new System.Drawing.Size(1172, 377);
             clearTable();
             BarChart.Series.Add("Mijlpaal 1");
             BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.ForestGreen;
             BarChart.Series[0].BorderColor = Color.OrangeRed;
-            BarChart.BackColor = Color.FromArgb(55,225,186);
+            BarChart.BackColor = Color.FromArgb(255,255,209);
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             BarChart.Titles.Add("Average speed at different locations");
 
@@ -124,12 +130,14 @@ namespace Project_3_Windows_form
         {
             this.graph = 3;
             clearTable();
+            BarChart.Location = new System.Drawing.Point(11, 10);
+            BarChart.Size = new System.Drawing.Size(1172, 377);
             BarChart.Series.Add("Average temperature");
             BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             BarChart.Series[0].Color = Color.HotPink;
             BarChart.Series[0].BorderColor = Color.PeachPuff;
-            BarChart.BackColor = Color.FromArgb(236, 219, 131);
+            BarChart.BackColor = Color.FromArgb(255, 242, 247);
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             BarChart.Titles.Add("Temperature & amount of cars");
             DateTime count = new DateTime(2011, 01, 1);
