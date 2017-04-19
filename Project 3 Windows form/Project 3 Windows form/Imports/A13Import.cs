@@ -11,6 +11,7 @@ namespace Project_3_Windows_form.Imports
 {
     public class A13Import : IConnection
     {
+        // imports the speeds from the database
         public List<int> ImportSpeeds()
         {
             List<int> speed = new List<int>();
@@ -40,6 +41,8 @@ namespace Project_3_Windows_form.Imports
             }
             return speed;
         }
+
+        // imports the avarage amount of carss each minute and returns it in a list of intergers
         public List<int> ImportAvgCars()
         {
             List<int> speed = new List<int>();
@@ -61,7 +64,7 @@ namespace Project_3_Windows_form.Imports
             }
             catch
             {
-                MessageBox.Show("Importing speed failed");
+                MessageBox.Show("Importing  avg cars failed");
             }
             finally
             {
@@ -69,6 +72,8 @@ namespace Project_3_Windows_form.Imports
             }
             return speed;
         }
+
+        //IMports the speed from the converted daily speed model
         public List<int> ImportAVGdailySpeed()
         {
             List<int> speed = new List<int>();
@@ -98,30 +103,10 @@ namespace Project_3_Windows_form.Imports
             }
             return speed;
         }
+        //Takes the intensety model and converts it into dayly numbers
         public List<int> ImportAVGCarsAmount()
         {
-            List<int> intensity = new List<int>();
-            try
-            {
-                conn.Open();
-                MySqlCommand cmd;
-                string searchQuery = @"SELECT intensiteit FROM Intensiteit";
-                cmd = new MySqlCommand(searchQuery, conn);
-
-                cmd.Prepare();
-
-                MySqlDataReader datareader = cmd.ExecuteReader();
-
-                while (datareader.Read())
-                {
-                    intensity.Add(datareader.GetInt32("Intensiteit"));
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Importing intensity failed");
-            }
-            finally
+            List<int> intensity = ImportAvgCars();
             {
                 conn.Close();
             }
@@ -151,6 +136,8 @@ namespace Project_3_Windows_form.Imports
             }
             return AVGDay;
         }
+
+        // imports weather and average amount of cars and returns it as one tuple
         public List<Tuple<int, int>> ImportWeatherAndCars()
         {
             List<Tuple<int, int>> ValueNodes = new List<Tuple<int, int>>();
@@ -183,6 +170,8 @@ namespace Project_3_Windows_form.Imports
             }
             return ValueNodes;
         }
+
+        // imports the average amount of cars at 2 different milestones
         public List<Tuple<int, int>> Import2CarAverage()
         {
             List<Tuple<int, int>> ValueNodes = new List<Tuple<int, int>>();

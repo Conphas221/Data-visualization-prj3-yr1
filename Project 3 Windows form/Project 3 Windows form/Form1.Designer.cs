@@ -2,7 +2,6 @@
 {
     partial class Form1
     {
-        Game game = new Game();
         /// <summary>
         /// Required designer variable.
         /// </summary>

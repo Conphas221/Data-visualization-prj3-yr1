@@ -24,11 +24,10 @@ namespace Project_3_Windows_form
 
         private void chart1_Click(object sender, EventArgs e)
         {
+            //resets the 
             graph = 0;
-            FilterButton.Enabled = true;
-            button1.Enabled = true;
-            BarChart.Series.Clear();
-            BarChart.Titles.Clear();
+            clearTable();
+
             BarChart.Series.Add("Average speed");
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
             BarChart.Series[0].Color = Color.HotPink;
@@ -37,30 +36,17 @@ namespace Project_3_Windows_form
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             BarChart.Titles.Add("Average car speed");
             int count = 1;
+            //adds a list of values for the table to draw
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
             BarChart.Series["Average speed"].Points.DataBindY(AVGspeeds.ToArray());
             count = count + 1;
         }
 
-        private void btnMinToDay_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Do you really want to convert the speeds?", "convert", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Converter convert = new Converter();
-                convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
-            }
-
-        }
-
         private void btnSpeedCar_Click(object sender, EventArgs e)
         {
-            // gemiddelde snelheid lijst int & deze snelheden toevoegd aan de barchart
+            // Sets new values for the new table
             this.graph = 1;
-            FilterButton.Enabled = true;
-            button1.Enabled = true;
-            BarChart.Series.Clear();
-            BarChart.Titles.Clear();
+            clearTable();
             BarChart.Series.Add("Average speed");
             BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
@@ -69,21 +55,27 @@ namespace Project_3_Windows_form
             BarChart.BackColor = Color.HotPink;
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             BarChart.Titles.Add("Average speed & amount of cars");
+
+            //creates a new datetime with starting date
             DateTime count = new DateTime(2011, 01, 1);
             List<int> AVGspeeds = Importer.ImportAVGdailySpeed();
             foreach (var item in AVGspeeds)
             {
+                //adds the item in the list and adds a DateTime attribute for the date, then increments the date for the next item
                 BarChart.Series["Average speed"].Points.Add(new DataPoint(count.ToOADate(), item));
                 count = count.AddDays(1);
             }
 
+            //adds a second series to the chart
             BarChart.Series.Add("Average car amount");
             BarChart.Series[1].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
             BarChart.Series[1].Color = Color.Gray;
             BarChart.Series[1].BorderColor = Color.DarkGray;
 
+            // resets the date
             count = new DateTime(2011, 01, 1);
 
+            // adds more items to the chart
             List<int> AVGcars = Importer.ImportAVGCarsAmount();
             foreach (var item in AVGcars)
             {
@@ -95,10 +87,7 @@ namespace Project_3_Windows_form
         private void btnSpeed_Click(object sender, EventArgs e)
         {
             this.graph = 2;
-            FilterButton.Enabled = true;
-            button1.Enabled = true;
-            BarChart.Series.Clear();
-            BarChart.Titles.Clear();
+            clearTable();
             BarChart.Series.Add("Mijlpaal 1");
             BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -107,12 +96,15 @@ namespace Project_3_Windows_form
             BarChart.BackColor = Color.FromArgb(55,225,186);
             BarChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             BarChart.Titles.Add("Average speed at different locations");
+
+            //creates a new datetime with starting date
             DateTime count = new DateTime(2011, 01, 1);
 
             List<Tuple<int,int>> ValueNodes = Importer.Import2CarAverage();
 
             foreach (Tuple<int,int> item in ValueNodes)
             {
+                 //adds the item in the list and adds a DateTime attribute for the date, then increments the date for the next item
                 BarChart.Series["Mijlpaal 1"].Points.Add(new DataPoint(count.ToOADate(), item.Item1));
                 count = count.AddDays(1);
             }
@@ -131,10 +123,7 @@ namespace Project_3_Windows_form
         private void btnTempCar_Click(object sender, EventArgs e)
         {
             this.graph = 3;
-            FilterButton.Enabled = true;
-            button1.Enabled = true;
-            BarChart.Series.Clear();
-            BarChart.Titles.Clear();
+            clearTable();
             BarChart.Series.Add("Average temperature");
             BarChart.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             BarChart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -163,6 +152,9 @@ namespace Project_3_Windows_form
                 count = count.AddDays(1);
             }
         }
+
+        //adds the item in the list and adds a DateTime attribute for the date, then increments the date for the next item
+
         private void fill_charts(string Title, string dataSource1, string DataSource2, List<Tuple<int,int>> List)
         {
             FilterButton.Enabled = true;
@@ -194,32 +186,38 @@ namespace Project_3_Windows_form
                 count = count + 1;
             }
         }
+        //clears the table and removes the table from the screen
         private void btnClear_Click(object sender, EventArgs e)
         {
-            FilterButton.Enabled = false;
-            button1.Enabled = false;
-            BarChart.Series.Clear();
-            BarChart.Titles.Clear();
+            clearTable();
             BarChart.BackColor = Color.Transparent;
         }
 
+        //removes the items from the table
+        private void clearTable()
+        {
+            FilterButton.Enabled = true;
+            button1.Enabled = true;
+            BarChart.Series.Clear();
+            BarChart.Titles.Clear();
+        }
+
+        //closes the program
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void convert2_Click(object sender, EventArgs e)
-        {
-            Converter convert = new Converter();
-            convert.ConvertDatabaseToNewList(Importer.ImportSpeeds());
-        }
-
+        //redraws the table in its entirety and removes the points that are outside the given range
         private void FilterButton_Click(object sender, EventArgs e)
         {
             resetchart(sender, e);
+
+            //checks if the filter is filled in
             if (BegDay.Text.Length > 0 && BegMonth.Text.Length > 0)
             {
                 bool text = true;
+                //chekcs if the filter consists out of digits
                 foreach (char letter in BegDay.Text)
                 {if (!char.IsDigit(letter)){text = false;}
                 }
@@ -233,13 +231,17 @@ namespace Project_3_Windows_form
                 {if (!char.IsDigit(letter)){ text = false;}
                 }
 
+                //gets the values from the textboxes and puts them into interger variables
                 int BeginningMonth = Int32.Parse(BegMonth.Text);
                 int BeginningDay = Int32.Parse(BegDay.Text);
                 int EndingMonth= Int32.Parse(EndMonth.Text);
                 int EndingDay = Int32.Parse(EndDay.Text);
 
+                //checks if the values are in bounds
                 if ((1 >= BeginningDay) && (BeginningDay <= 31) && (1 >= EndingDay) && (EndingDay <= 31)) { text = false; }
                 if ((1 >= BeginningMonth) && (BeginningDay <= 12) && (1 >= EndingMonth) && (EndingMonth <= 12)) { text = false; }
+
+                //when all the checks above pass, it creates two date times using the values and calls the filter function
                 if (text == true)
                 {
                     DateTime begin = new DateTime(2011, BeginningMonth, BeginningDay);
@@ -250,6 +252,7 @@ namespace Project_3_Windows_form
                     BarChart.DataManipulator.Filter(filter, BarChart.Series[1]);
                 }else
                 {
+                    //displays a error message if one of the tests fails
                     MessageBox.Show("The given filter is not correct");
                 }
             }
@@ -261,6 +264,8 @@ namespace Project_3_Windows_form
             DateTime begin= new DateTime();
             DateTime end = new DateTime();
             string result = comboBox1.Text;
+
+            //sets a filter range dependend on the month given in the dropdown menu
 
             if (result == "December") { begin = new DateTime(2011,11,30); end = new DateTime(2012, 1, 1); }
             else if (result == "Februari") { begin = new DateTime(2011, 1, 31); end = new DateTime(2011, 3, 1); }
@@ -281,6 +286,7 @@ namespace Project_3_Windows_form
         }
         public void resetchart(object sender, EventArgs e)
         {
+            // redraws the current chart without filter points
             if (graph == 1)
             {
                 btnSpeedCar_Click(sender, e);
@@ -309,6 +315,7 @@ namespace Project_3_Windows_form
         }
         public bool FilterDataPoint(DataPoint point, Series series, Int32 filter_on)
         {
+            //checks if the datapoints in the chart match the criteria giving, when they pass they stey active, otherwise they are turned off.
             if ((point.XValue <= beg.ToOADate())|| (point.XValue >= end.ToOADate()))
             {
                 return true;

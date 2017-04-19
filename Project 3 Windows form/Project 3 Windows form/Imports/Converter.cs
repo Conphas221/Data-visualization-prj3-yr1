@@ -59,6 +59,8 @@ namespace Project_3_Windows_form
                 conn.Close();
             }
         }
+
+        //inserts a new value into the snelheid_c78 table of the database
         public void InsertNewValues(DateTime day, int avgspeed)
         {
             try
@@ -85,7 +87,7 @@ namespace Project_3_Windows_form
             }
             catch
             {
-                MessageBox.Show("Updaten van Contact mislukt");
+                MessageBox.Show("Updating table failed");
             }
             finally
             {
@@ -119,8 +121,11 @@ namespace Project_3_Windows_form
                     countItteration = 1;
                 }
             }
+            // confirms it if the import is finished
             MessageBox.Show("Importing finished");
         }
+
+        //Inserts a new row into autodsDag of the database
         public void InsertNewAutos(DateTime day, int avgspeed)
         {
             try
@@ -147,6 +152,7 @@ namespace Project_3_Windows_form
             }
             catch
             {
+                //Gives an error message if the process above fails
                 MessageBox.Show("Updating Cars failed");
             }
             finally

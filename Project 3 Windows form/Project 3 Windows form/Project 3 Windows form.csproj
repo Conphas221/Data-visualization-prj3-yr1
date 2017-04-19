@@ -58,7 +58,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs" />
     <Compile Include="Imports\A13Import.cs" />
     <Compile Include="Imports\IConnection.cs" />
     <Compile Include="Program.cs" />
